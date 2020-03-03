@@ -1,0 +1,20 @@
+.navigation {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    padding: 0 50px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #add8e6;
+}
+
+.navigation-list-item {
+    font-size: 20px;
+    margin-right: 20px;
+    list-style-type: none;
+}
+
+.navigation-list-item a {
+    text-decoration: none;
+    color: #161714;
+}
