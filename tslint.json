@@ -1,8 +1,10 @@
 {
 	"extends": [
-		"tslint-immutable"
+		"tslint-immutable",
+		"tslint-react-hooks"
 	],
 	"rules": {
+		"react-hooks-nesting": "error",
 		"no-var-keyword": true,
 		"no-parameter-reassignment": true,
 		"typedef": false,

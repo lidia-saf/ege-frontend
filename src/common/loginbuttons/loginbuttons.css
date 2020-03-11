@@ -1,0 +1,10 @@
+.login-buttons-container {
+    display: flex;
+}
+
+.login-button {
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    box-shadow: none;
+}

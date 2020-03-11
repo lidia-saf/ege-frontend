@@ -2,32 +2,9 @@ body {
     margin: 0;
     height: 100%;
     font-family: 'Kulim Park', sans-serif;
+    background-color: #f3f6f1;
 }
 
 #root {
     height: 100%;
-}
-
-.logo {
-    width: 100%;
-    max-height: 300px;
-    background-color: #2c2c2c;
-    padding: 50px 50px 50px 380px;
-}
-
-.logo-heading {
-    text-transform: uppercase;
-    font-size: 60px;
-    font-weight: 300;
-    font-style: normal;
-    color: #ccc9c7;
-    margin: 0;
-    padding: 0;
-}
-
-.logo-span {
-    text-transform: uppercase;
-    font-size: 25px;
-    font-weight: 300;
-    color: #ccc9c7;
 }
