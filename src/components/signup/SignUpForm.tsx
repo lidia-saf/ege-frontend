@@ -5,6 +5,7 @@ import { ErrorMessage } from '../../common/errormessage/ErrorMessage';
 import { useErrorHandler } from '../../utils/customhooks/ErrotHandler';
 import * as auth from '../../utils/auth';
 import { validateForm } from './helpers';
+import '../../styles/index.css';
 
 export const SignUpForm: React.FC<{}> = () => {
     const [email, setEmail] = React.useState('');
@@ -35,46 +36,49 @@ export const SignUpForm: React.FC<{}> = () => {
     }
 
     return (
-        <div className='signup-container'>
-            <Form className='signup-form' onSubmit={e => onFormSubmit(e)}>
-                <FormGroup>
-                    <Label for='email'>Адрес электронной почты:</Label>
-                    <Input
-                        type='email'
-                        name='email'
-                        value={email}
-                        id='email'
-                        placeholder='youremail@mailprovider.com'
-                        onChange={e => setEmail(e.target.value)} />
-                </FormGroup>
-                <FormGroup>
-                    <Label for='password'>Введите пароль:</Label>
-                    <Input
-                        type='password'
-                        name='password'
-                        value={password}
-                        id='password'
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label for='passwordRetype'>Повторите пароль:</Label>
-                    <Input
-                        type='password'
-                        name='passwordRetype'
-                        value={passwordRetype}
-                        id='passwordRetype'
-                        onChange={e => setPasswordRetype(e.target.value)}
-                    />
-                </FormGroup>
-                <br/>
-                <FormGroup>
-                    <Button type='submit' block={true}>
-                        {loading ? 'Идет загрузка...' : 'Создать аккаунт'}
-                    </Button>
-                </FormGroup>
-                {error && <ErrorMessage errorMessage={error} />}
-            </Form>
-        </div>
+        <>
+            <h3>Приветствуем на <span className='logo-span'>Sdam English</span>!</h3>
+            <div className='signup-container general-central-wrapper'>
+                <form className='general-form' onSubmit={e => onFormSubmit(e)}>
+                        <div className='general-input-wrapper'>
+                            <input
+                            type='email'
+                            name='email'
+                            value={email}
+                            id='email'
+                            className='general-input'
+                            placeholder='электронная почта'
+                            onChange={e => setEmail(e.target.value)} />
+                        </div>
+                        <div className='general-input-wrapper'>
+                            <input
+                                type='password'
+                                name='password'
+                                value={password}
+                                id='password'
+                                className='general-input'
+                                placeholder='придумайте и введите пароль'
+                                onChange={e => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className='general-input-wrapper'>
+                            <input
+                                type='password'
+                                name='passwordRetype'
+                                value={passwordRetype}
+                                id='passwordRetype'
+                                className='general-input'
+                                placeholder='повторите пароль'
+                                onChange={e => setPasswordRetype(e.target.value)}
+                            />
+                        </div>
+                    <br/>
+                        {error && <ErrorMessage errorMessage={error} />}
+                        <Button className='general-button' type='submit' block={true}>
+                            {loading ? 'Идет загрузка...' : 'Создать аккаунт'}
+                        </Button>
+                </form>
+            </div>
+        </>
     )
 };

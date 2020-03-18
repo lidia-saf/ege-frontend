@@ -5,7 +5,8 @@ import { ErrorMessage } from '../../common/errormessage/ErrorMessage';
 import { useErrorHandler } from '../../utils/customhooks/ErrotHandler';
 import * as auth from '../../utils/auth';
 import { validateForm } from './helpers';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import '../../styles/index.css';
 
 export const SignInForm: React.FC<{}> = () => {
     const history = useHistory();
@@ -35,36 +36,38 @@ export const SignInForm: React.FC<{}> = () => {
     }
 
     return (
-        <div className='signin-container'>
-            <Form onSubmit={e => onFormSubmit(e)}>
-                <FormGroup>
-                    <Label for='email'>Адрес электронной почты:</Label>
-                    <Input
-                        type='email'
-                        name='email'
-                        value={email}
-                        id='email'
-                        placeholder='youremail@mailprovider.com'
-                        onChange={e => setEmail(e.target.value)} />
-                </FormGroup>
-                <FormGroup>
-                    <Label for='password'>Введите пароль:</Label>
-                    <Input
-                        type='password'
-                        name='password'
-                        value={password}
-                        id='password'
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                </FormGroup>
-                <br/>
-                <FormGroup>
-                    <Button type='submit' block={true}>
-                        {loading ? 'Идет загрузка...' : 'Войти'}
-                    </Button>
-                </FormGroup>
-                {error && <ErrorMessage errorMessage={error} />}
-            </Form>
-        </div>
+        <>
+            <h3>Мы рады видеть тебя снова на <span className='logo-span'>Sdam English</span>!</h3>
+            <div className='signin-container general-central-wrapper'>
+                <form className='general-form' onSubmit={e => onFormSubmit(e)}>
+                    <div className='general-input-wrapper'>
+                        <input
+                            className='general-input'
+                            type='email'
+                            name='email'
+                            value={email}
+                            id='email'
+                            placeholder='Электронная почта'
+                            onChange={e => setEmail(e.target.value)} />
+                    </div>
+                    <div className='general-input-wrapper'>
+                        <input
+                            className='general-input'
+                            type='password'
+                            name='password'
+                            value={password}
+                            placeholder='Введите пароль'
+                            id='password'
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </div>
+                    {error && <ErrorMessage errorMessage={error} />}
+                    <br/>
+                        <Button className='general-button' type='submit' block={true}>
+                            {loading ? 'Идет загрузка...' : 'Войти'}
+                        </Button>
+                </form>
+            </div>
+        </>
     )
 };
