@@ -1,0 +1,38 @@
+.fb-signup-logo {
+    width: 300px;
+    height: 50px;
+    background-color: #1778f2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    padding: 1px;
+    margin: 0 50px 20px;
+    outline: none;
+    font-size: 16px;
+    line-height: 48px;
+    font-weight: 500;
+    transition: 0.218s;
+}
+
+.fb-signup-logo img {
+    height: 48px;
+    background-color: white;
+}
+
+.fb-signup-logo span {
+    margin: 0 42px;
+}
+
+.fb-signup-logo:hover {
+    box-shadow: 2px 2px 0 rgba(23,120,242, 0.25);
+}
+
+.social-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

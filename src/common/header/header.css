@@ -40,4 +40,10 @@
     font-size: 35px;
     color: whitesmoke;
     margin: 0 40px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.logo-font:hover {
+    font-size: 45px;
 }

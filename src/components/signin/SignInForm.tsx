@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { authContext } from '../../contexts/AuthContext';
 import { ErrorMessage } from '../../common/errormessage/ErrorMessage';
 import { useErrorHandler } from '../../utils/customhooks/ErrotHandler';
@@ -37,7 +37,7 @@ export const SignInForm: React.FC<{}> = () => {
 
     return (
         <>
-            <h3>Мы рады видеть тебя снова на <span className='logo-span'>Sdam English</span>!</h3>
+            <h3>Добро пожаловать<br/>на <span className='logo-span'>Sdam&nbsp;English</span></h3>
             <div className='signin-container general-central-wrapper'>
                 <form className='general-form' onSubmit={e => onFormSubmit(e)}>
                     <div className='general-input-wrapper'>

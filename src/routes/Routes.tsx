@@ -8,9 +8,10 @@ export const Routes: React.FC<Props> = () => {
     return (
             <Switch>
                 {routesMap.map(({ path, component, exact }: IRoutesMap) => {
+                    const Component = component;
                     return (
                         <Route key={path} path={path} exact={exact}>
-                            {component}
+                            <Component />
                         </Route>
                     )
                 })}

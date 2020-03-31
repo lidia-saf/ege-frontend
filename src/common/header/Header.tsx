@@ -18,8 +18,10 @@ export const Header: React.FC<IHeader> = () => {
             <li className='navigation-list-item'>
                 <Link to='/materials'>Материалы</Link>
             </li>
+            <li className='logo-font'>
+                <Link to='/' className='logo-font'>Sdam English</Link>
+            </li>
         </ul>
-        <div className='logo-font'>Sdam English</div>
         <LoginButtons />
     </nav>
 )

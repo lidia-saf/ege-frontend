@@ -16,12 +16,13 @@ const GlobalModalContainer: React.FC<TModal> = ({
     modalDisplay
 }) => {
     return (
-        <div>
+        <div className={toggleModal ? 'general-modal-hidden' : 'general-modal'}>
             <Modal
+                className='general-modal-container'
                 isOpen={modal}
                 toggle={toggleModal}
             >
-                <ModalHeader toggle={toggleModal}>{title}</ModalHeader>
+                <ModalHeader className='general-modal-title' toggle={toggleModal}>{title}</ModalHeader>
                 <ModalBody>{modalDisplay}</ModalBody>
             </Modal>
         </div>

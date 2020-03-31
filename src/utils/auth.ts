@@ -19,7 +19,7 @@ const POOL_DATA = {
 };
 
 // @ts-ignore
-const userPool = new CognitoUserPool(POOL_DATA);
+export const userPool = new CognitoUserPool(POOL_DATA);
 
 export const signUp = (
     email: string,
@@ -44,10 +44,6 @@ export const signUp = (
         {
             Name: 'email',
             Value: user.email
-        },
-        {
-            Name: 'custom:timestamp',
-            Value: stringUserTimestamp
         }
     ];
 
@@ -101,7 +97,7 @@ export const confirmUser = (
             setUserAccountVerified(true);
         } else {
             setLoading(false);
-            setError('There was a problem confirming the user');
+            setError('There was a problem confirming the user.');
         }
     })
 }
@@ -149,6 +145,28 @@ export const signIn = (
         }
     });
     return;
+}
+
+export const signOut = (
+    email: string,
+    setAuthStatus: (userAuth: CustomTypes.UserAuth) => void,
+    setUsername: React.Dispatch<React.SetStateAction<string>>,
+    setTimestamp: React.Dispatch<React.SetStateAction<number>>
+) => {
+    const userData = {
+        Username: email,
+        Pool: userPool
+    };
+    const cognitoUser = new CognitoUser(userData);
+    cognitoUser.signOut();
+    setAuthStatus({
+        userId: '',
+        idToken: '',
+        timestamp: 0,
+        authenticated: false
+    });
+    setUsername('');
+    setTimestamp(0);
 }
 
 export const getStoredUserAuth = (): CustomTypes.UserAuth => {

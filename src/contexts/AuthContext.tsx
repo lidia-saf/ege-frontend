@@ -42,7 +42,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     children
 }) => {
     const [userTimestamp, setTimestamp] = React.useState(0);
-    const [userId, setUserId] = React.useState('Varun');
+    const [userId, setUserId] = React.useState('');
     const [username, setUsername] = React.useState('');
     const [confirmationCodeModal, openConfirmationCodeModal] = React.useState(false);
     const [userAccountVerified, setUserAccountVerified] = React.useState(false);

@@ -1,0 +1,24 @@
+.login-tab-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 0;
+    padding: 0;
+}
+
+.login-tab {
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    font-size: 17px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4754a1;
+    border-bottom: 3px solid #4754a1;
+}
+
+.login-tab-active {
+    background: linear-gradient(to right, #4754a1, #7c29cf);;
+    color: white;
+}

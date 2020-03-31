@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const dotenv = require('dotenv');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = () => {
   const env = dotenv.config().parsed;
@@ -32,14 +33,33 @@ module.exports = () => {
         {
           test: /\.css$/,
           use: ['style-loader', 'css-loader']
-        }
+        },
+        {
+          test: /\.svg$/,
+          loader: 'svg-inline-loader',
+          options: {
+            name: 'images/[name].[ext]'
+          }
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: 'images/[name].[ext]'
+              }
+            },
+          ],
+        },
       ]
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html'
       }),
-      new webpack.DefinePlugin(envKeys)
+      new webpack.DefinePlugin(envKeys),
+      new BundleAnalyzerPlugin()
     ]
   }
 };

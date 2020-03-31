@@ -6,35 +6,46 @@ h1 {
 h3 {
     color: #261059;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.3em;
     text-transform: uppercase;
     font-weight: 500;
     margin: 2em 0;
 }
 
+h5 {
+    color: #4754a1;
+    text-align: center;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
 .general-button {
-    height: 70px;
-    width: 320px;
-    background: #7c29cf;
+    height: 60px;
+    width: 300px;
+    background: linear-gradient(to left, #4754a1, #7c29cf);
+    border: none;
     display: block;
     margin: 0 auto;
     padding: 5px;
-    border-radius: 15px;
+    border-radius: 1px;
     transition: 0.4s;
     color: whitesmoke;
     text-transform: uppercase;
     font-size: 20px;
     outline: none;
+    box-shadow: none;
 }
 
 .general-button:hover {
-    background: linear-gradient(to right, #e64ca1, #7c29cf);
+    background: linear-gradient(to right, #4754a1, #7c29cf);
+    box-shadow: 0px 1px 20px 0px rgba(71,84,161,1);
     cursor: pointer;
     outline: none;
 }
 
 .general-button:active {
-    background: linear-gradient(to right, #7c29cf, #e64ca1);
+    background: linear-gradient(to right, #4754a1, #7c29cf);
     cursor: pointer;
     outline: none;
 }
@@ -53,32 +64,33 @@ h3 {
 }
 
 .general-input-wrapper {
-    width: 100%;
-    padding: 3px;
+    width: 300px;
+    padding: 2px;
     position: relative;
-    background: linear-gradient(to right, #e64ca1, #7c29cf);
-    border-radius: 20px;
+    background: linear-gradient(to right, #4754a1, #7c29cf);
+    border-radius: 1px;
     margin: 0 0 20px;
 }
 
 .general-input {
     display: block;
-    width: 100%;
+    width: 296px;
     font-size: 1em;
     padding: 20px 10px;
-    border-radius: 20px;
+    border-radius: 1px;
     border: transparent 1px solid;
-    background-color: whitesmoke;
+    background-color: white;
     outline: none;
 }
 
 .general-input:focus, .general-input:active {
     cursor: pointer;
+    box-shadow: 0px 1px 25px 0px rgba(71,84,161,1);
 }
 
 .general-input::placeholder{
-    font-size: 19px;
-    color: #776f80;
+    font-size: 15px;
+    color: darkgrey;
     text-transform: uppercase;
 }
 
@@ -94,6 +106,10 @@ h3 {
 
 .general-form {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-span {
@@ -102,4 +118,61 @@ h3 {
     text-transform: capitalize;
     font-family: 'Indie Flower', cursive;
     color: #0e0e0e;
+}
+
+.general-direction {
+    color: #261059;
+    text-align: center;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 1em 0;
+}
+
+.general-modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.general-modal-hidden {
+    display: none;
+}
+
+.general-modal-container {
+    position: fixed;
+    top: 0;
+    left: 2%;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #261059;
+    width: 95%;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-title {
+    margin: 0 0 20px;
 }

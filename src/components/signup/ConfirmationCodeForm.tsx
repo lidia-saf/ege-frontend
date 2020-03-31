@@ -1,16 +1,19 @@
 import * as React from 'react';
-import { Button, Form, Label, FormGroup, Input } from 'reactstrap';
+import { Button, Form } from 'reactstrap';
 import { authContext } from '../../contexts/AuthContext';
 import { ErrorMessage } from '../../common/errormessage/ErrorMessage';
 import { useErrorHandler } from '../../utils/customhooks/ErrotHandler';
 import * as auth from '../../utils/auth';
 
-export const ConfirmationCodeForm: React.FC<{}> = () => {
+interface IConfirmationCodeForm {
+}
+
+export const ConfirmationCodeForm: React.FC<IConfirmationCodeForm> = () => {
     const [loading, setLoading] = React.useState(false);
     const [confirmationCode, setConfirmationCode] = React.useState('');
     const { error, showError } = useErrorHandler(null);
     const {
-        userId,
+        username,
         userAccountVerified,
         setUserAccountVerified
     } = React.useContext(authContext);
@@ -26,7 +29,7 @@ export const ConfirmationCodeForm: React.FC<{}> = () => {
         e.preventDefault();
         if (confirmationCode) {
             auth.confirmUser(
-                userId,
+                username,
                 confirmationCode,
                 showError,
                 setLoading,
@@ -38,22 +41,20 @@ export const ConfirmationCodeForm: React.FC<{}> = () => {
     }
 
     return (
-        <Form onSubmit={e => handleSubmit(e)}>
-            <FormGroup>
-                <Label for='confirmationCode'>Введите код подтверждения</Label>
-                <Input
+        <Form className='general-form' onSubmit={e => handleSubmit(e)}>
+            <div className='general-input-wrapper'>
+                <input
                     type='text'
+                    className='general-input'
                     name='confirmationCode'
                     id='confirmationCode'
-                    placeholder='Код подтверждения'
+                    placeholder='Введите код подтверждения'
                     onChange={e => setConfirmationCode(e.target.value)}
                 />
-            </FormGroup>
-            <FormGroup>
-                <Button type='submit' block={true}>
-                    {loading ? 'Идет загрузка...' : 'Подтвердить'}
-                </Button>
-            </FormGroup>
+            </div>
+            <Button className='general-button' type='submit' block={true}>
+                {loading ? 'Идет загрузка...' : 'Подтвердить'}
+            </Button>
             {error && <ErrorMessage errorMessage={error} />}
         </Form>
         )

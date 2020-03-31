@@ -2,7 +2,8 @@ import { Tests } from '../components/tests';
 import { AboutExam } from '../components/aboutexam';
 import { Materials } from '../components/materials';
 import { SignIn } from '../components/signin/SignIn';
-import { SignUp } from '../components/signup/SignUp';
+import { Home } from '../components/home/Home';
+import { Login } from '../components/login/Login';
 
 export interface IRoutesMap {
     path: string;
@@ -12,6 +13,12 @@ export interface IRoutesMap {
 }
 
 export const routesMap: IRoutesMap[] = [
+    {
+        path: '/',
+        component: Home,
+        exact: true,
+        private: false
+    },
     {
         path: '/tests',
         component: Tests,
@@ -32,7 +39,7 @@ export const routesMap: IRoutesMap[] = [
     },
     {
         path: '/signup',
-        component: SignUp,
+        component: Login,
         exact: true,
         private: false
     },
