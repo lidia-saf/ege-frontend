@@ -30,9 +30,17 @@
     margin-left: 4px;
 }
 
-.navigation-list-item a:hover {
-    color: #0f0e0e;
-    cursor: pointer;
+.navigation-list-item a:after {
+    content: '';
+    display: block;
+    width: 0%;
+    padding-top: 5px;
+    border-bottom: 2px solid whitesmoke;
+    transition: 0.3s;
+}
+
+.navigation-list-item a:hover:after {
+    width: 100%;
 }
 
 .logo-font {

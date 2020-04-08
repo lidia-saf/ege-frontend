@@ -4,6 +4,7 @@ import { Materials } from '../components/materials';
 import { SignIn } from '../components/signin/SignIn';
 import { Home } from '../components/home/Home';
 import { Login } from '../components/login/Login';
+import { QuestionPage } from '../components/tests/questionPage/QuestionPage';
 
 export interface IRoutesMap {
     path: string;
@@ -22,6 +23,12 @@ export const routesMap: IRoutesMap[] = [
     {
         path: '/tests',
         component: Tests,
+        exact: true,
+        private: false
+    },
+    {
+        path: '/tests/question/:id',
+        component: QuestionPage,
         exact: true,
         private: false
     },

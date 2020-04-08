@@ -1,0 +1,100 @@
+.question-result-list-container {
+    list-style-type: none;
+    counter-reset: question-counter;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.question-results-list-item-container {
+    width: 100%;
+    border: 1px solid hsl(0,0%,80%);
+    box-shadow: 0 0 0 1px hsl(0,0%,80%);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px 10px;
+    margin: 0 0 20px;
+}
+
+.question-results-list-item {
+    counter-increment: question-counter;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.question-results-list-item-container:hover {
+    border: 2px solid #4754a1;
+    box-shadow: 0px 1px 7px 0px rgba(71,84,161,1);
+}
+
+.question-results-list-item a {
+    text-decoration: none;
+    color: #4754a1;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.question-results-list-item:before {
+    content: counter(question-counter)"";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    line-height: 2;
+    font-weight: 500;
+    width: 50px;
+    height: 50px;
+    margin: auto 25px;
+    border-radius: 50px;
+    background-color: #4754a1;
+    border: 2px solid #4754a1;
+}
+
+.question-results-list-item:hover:before {
+    transition: 0.218s ease;
+    border: 2px solid #4754a1;
+    background-color: whitesmoke;
+    color: #4754a1;
+}
+
+.question-results-list-item-paragraph {
+    width: 85%;
+    height: 3em;
+    line-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.2em;
+    margin: 0 0 20px 100px;
+}
+
+.question-results-list-item-button {
+    height: 50px;
+    border-radius: 3px;
+    background: #4754a1;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px 0 70%;
+    padding: 5px 10px;
+    transition: 0.35s;
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-size: 20px;
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.question-results-list-item-button:hover, .question-results-list-item-button:active {
+    box-shadow: 0px 1px 10px 0px rgba(71,84,161,1);
+    cursor: pointer;
+    outline: none;
+}

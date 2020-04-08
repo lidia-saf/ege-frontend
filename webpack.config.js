@@ -12,7 +12,7 @@ module.exports = () => {
   }, {});
   
   return {
-    entry: './src/index',
+    entry: ['@babel/polyfill', './src/index'],
     output: {
       path: path.join(__dirname, '/dist'),
       filename: 'bundle.js'
@@ -53,6 +53,11 @@ module.exports = () => {
           ],
         },
       ]
+    },
+    devServer: {
+      proxy: {
+        '/api': 'http://localhost:3001'
+      }
     },
     plugins: [
       new HtmlWebpackPlugin({
