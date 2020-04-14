@@ -14,7 +14,7 @@ export const SignUp: React.FC<{}> = () => {
                         toggleModal={() => value.openConfirmationCodeModal(!value.confirmationCodeModal)}
                         title='Проверьте, пожалуйста, электронную почту'
                         modalDisplay={<ConfirmationCodeForm />}
-                        modal={value.confirmationCodeModal}
+                        isOpen={value.confirmationCodeModal}
                     />
                     <SignUpForm/>
             </>}

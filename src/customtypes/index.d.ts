@@ -1,3 +1,5 @@
+import { IQuestion } from '../components/tests/types';
+
 export type UserAuth = {
     userId: string | number;
     idToken: string;
@@ -8,4 +10,15 @@ export type UserAuth = {
 export type CognitoUser = {
     email: string;
     password: string;
+}
+
+export interface IAppState {
+    testsReducer: ITestsReducer;
+}
+
+export interface ITestsReducer {
+    questions: IQuestion[] | [],
+    loading: boolean,
+    error: null | Error,
+    testMaxValue: number
 }

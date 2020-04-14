@@ -1,0 +1,56 @@
+.timer-container {
+    display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 80%;
+    top: 0;
+    margin: 20px auto 0;
+    font-size: 1.2em;
+    background-color: #4754a1;
+    color: white;
+    height: 80px;
+    padding: 10px 30px;
+}
+
+.timer-container svg {
+    height: 50px;
+    margin-right: 30px;
+}
+
+.timer-paragraph {
+    margin: 0 30px;
+}
+
+.timer-button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.time-button:hover {
+    outline: none;
+    box-shadow: 0px 1px 25px 0 white;
+}
+
+.timer-button svg {
+    height: 35px;
+    margin-right: 0;
+    opacity: 0.95;
+}
+
+.timer-button svg:hover {
+    transition: 0.218s;
+    opacity: 1;
+}
+
+.timer-h3 {
+    
+}

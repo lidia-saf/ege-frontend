@@ -55,6 +55,8 @@ module.exports = () => {
       ]
     },
     devServer: {
+      historyApiFallback: true,
+      contentBase: "/dist",
       proxy: {
         '/api': 'http://localhost:3001'
       }

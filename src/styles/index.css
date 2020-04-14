@@ -66,7 +66,6 @@ h5 {
 .general-input-wrapper {
     width: 300px;
     padding: 2px;
-    position: relative;
     background: linear-gradient(to right, #4754a1, #7c29cf);
     border-radius: 1px;
     margin: 0 0 20px;
@@ -148,12 +147,13 @@ h5 {
 .general-modal-container {
     position: fixed;
     top: 0;
-    left: 2%;
+    left: 0;
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 15% calc(8%);
+    color: white;
     padding: 20px;
-    border: 1px solid #261059;
-    width: 95%;
+    border: 2px solid #4754a1;
+    width: 84%;
 }
 
 .close {

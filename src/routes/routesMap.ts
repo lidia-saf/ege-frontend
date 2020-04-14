@@ -5,6 +5,7 @@ import { SignIn } from '../components/signin/SignIn';
 import { Home } from '../components/home/Home';
 import { Login } from '../components/login/Login';
 import { QuestionPage } from '../components/tests/questionPage/QuestionPage';
+import { TestPage } from '../components/tests/testpage/TestPage';
 
 export interface IRoutesMap {
     path: string;
@@ -27,7 +28,13 @@ export const routesMap: IRoutesMap[] = [
         private: false
     },
     {
-        path: '/tests/question/:id',
+        path: '/tests/:testId',
+        component: TestPage,
+        exact: true,
+        private: false
+    },
+    {
+        path: '/tests/:testId/question/:questionNumber',
         component: QuestionPage,
         exact: true,
         private: false

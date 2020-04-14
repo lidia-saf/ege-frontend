@@ -11,11 +11,16 @@ interface ISearchBar {
     setFilterOption: React.Dispatch<React.SetStateAction<IFilterOption>>;
 }
 
+interface Option {
+    value: string;
+    label: string;
+}
+
 const options = [
     { value: 'question', label: 'Вопрос' },
-    { value: 'test', label: 'Тест' },
-    { value: 'section', label: 'Раздел' },
-    { value: 'material', label: 'Тема' }
+    { value: 'test', label: 'Тест' }
+    // { value: 'section', label: 'Раздел' },
+    // { value: 'material', label: 'Тема' }
 ]
 
 const selectStyles = {
@@ -61,26 +66,34 @@ const selectStyles = {
   };
 
 export const SearchBar: React.FC<ISearchBar> = ({ setFilterOption }) => {
-    const onSelectChange = (option) => {
-        setFilterOption(option.value);
+    const [filter, setFilter] = React.useState<IFilterOption>('test');
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setFilterOption(filter);
+    }
+
+    const onSelectChange = (option: Option) => {
+        setFilter(option.value);
     }
 
     return (
         <>
-            <form className='search-form-container'>
-                <input
+            <form className='search-form-container' onSubmit={handleSubmit}>
+                {/* <input
                     type='text'
                     className='search-bar-input'
                     id='search-bar'
                     placeholder='Поиск...'
-                />
+                /> */}
                 <Select
                     options={options}
                     placeholder='Фильтр'
                     styles={selectStyles}
                     onChange={onSelectChange}
+                    value={options.filter(option => option.value === filter)}
                 />
-                <button className='search-button'>
+                <button className='search-button' type='submit'>
                     <SVG src={SearchIcon} />
                 </button>
             </form>

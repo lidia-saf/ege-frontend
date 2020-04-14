@@ -1,21 +1,33 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { fetchAllQuestions } from '../../../redux/actions/fetchAllQuestions';
+import { findMaxValueOfTests } from '../../../redux/actions/findMaxValueOfTests';
+import { IAppState } from '../../../customtypes';
+import { fetchTest } from '../../../redux/actions/fetchTest';
 
-const useApiToExtractMaxTestId = (setMaxTestId: React.Dispatch<React.SetStateAction<number>>) => {
+const useApiToExtractMaxTestId = () => {
+    const testMaxValue = useSelector(state => (state as IAppState).testsReducer.testMaxValue);
+    const dispatch = useDispatch();
+
     useEffect(() => {
         let isCancelled = false;
+
         const fetchMaxTestId = async () => {
             try {
-                const result = await axios('/api/tests/v1/get/maxtest');
+                dispatch(findMaxValueOfTests());
                 if (!isCancelled) {
-                    setMaxTestId(result.data.maxTestId.value);
+                    // setMaxTestId(result.data.maxTestId.value);
                 }
             } catch (e) {
                 if (!isCancelled) {}
             }
         }
 
-        fetchMaxTestId();
+        if (testMaxValue === 0) {
+            fetchMaxTestId();
+        }
+
         return () => {
             isCancelled = true;
         }
@@ -23,41 +35,46 @@ const useApiToExtractMaxTestId = (setMaxTestId: React.Dispatch<React.SetStateAct
 }
 
 const useApiToExtractAllQuestions = (
-    setQuestions: React.Dispatch<React.SetStateAction<any>>,
     sortOption: 'questionNumber' | 'testId') => {
+    const dispatch = useDispatch();
+    const questions = useSelector(state => (state as IAppState).testsReducer.questions);
+
     useEffect(() => {
         let isCancelled = false;
         const fetchQuestions = async () => {
             try {
-                const query = `?sort=${sortOption}`;
-                const result = await axios(`/api/tests/v1/get${query}`);
+                dispatch(fetchAllQuestions(sortOption));
+                // const query = `?sort=${sortOption}`;
+                // const result = await axios(`/api/tests/v1/get${query}`);
                 if (!isCancelled) {
-                    setQuestions(result.data.hits.hits);
+                    // setQuestions(result.data.hits.hits);
                 }
             } catch (e) {
                 if (!isCancelled) {}
             }
         }
-
-        fetchQuestions();
+        if (questions.length === 0) {
+            fetchQuestions();
+        }
         return () => {
             isCancelled = true;
         }
     }, []);
 }
 
-const useApiToExtractQuestionById = (
-    setQuestion: React.Dispatch<React.SetStateAction<any>>,
-    id: string
+const useApiToGetTestByTestId = (
+    testId: string
 ) => {
+    const dispatch = useDispatch();
     useEffect(() => {
         let isCancelled = false;
         const fetchQuestion = async () => {
             try {
-                const result = await axios(`/api/tests/v1/get/question/${id}`);
-                console.log(result);
+                dispatch(fetchTest(testId))
+                // const result = await axios(`/api/tests/v1/get/tests/${testId}`);
+                // console.log(result);
                 if (!isCancelled) {
-                    setQuestion(result.data.hits.hits[0]);
+                    // setQuestion(result.data.hits.hits[0]);
                 }
             } catch (e) {
                 if (!isCancelled) {
@@ -70,10 +87,10 @@ const useApiToExtractQuestionById = (
         return () => {
             isCancelled = true;
         }
-    }, [])
+    }, [testId])
 }
 
 export { useApiToExtractMaxTestId,
         useApiToExtractAllQuestions,
-        useApiToExtractQuestionById
+        useApiToGetTestByTestId
     }

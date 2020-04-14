@@ -5,21 +5,21 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 type TModal = {
     title: string;
     modalDisplay: any;
-    modal: boolean;
+    isOpen: boolean;
     toggleModal: () => void;
 };
 
 const GlobalModalContainer: React.FC<TModal> = ({
     title,
     toggleModal,
-    modal,
+    isOpen,
     modalDisplay
 }) => {
     return (
         <div className={toggleModal ? 'general-modal-hidden' : 'general-modal'}>
             <Modal
                 className='general-modal-container'
-                isOpen={modal}
+                isOpen={isOpen}
                 toggle={toggleModal}
             >
                 <ModalHeader className='general-modal-title' toggle={toggleModal}>{title}</ModalHeader>
