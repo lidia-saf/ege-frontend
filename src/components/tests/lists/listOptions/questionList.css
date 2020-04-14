@@ -98,3 +98,41 @@
     cursor: pointer;
     outline: none;
 }
+
+@media only screen and (max-width: 900px) {
+    .question-results-list-item:before {
+        font-size: 20px;
+        line-height: 2;
+        height: 30px;
+        margin: auto 15px;
+    }
+
+    .question-results-list-item a {
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    h3 {
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    
+    .question-results-list-item-paragraph {
+        width: 85%;
+        height: 2.6em;
+        line-height: 1.3em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1em;
+        margin: 0 20px;
+    }
+
+    .question-results-list-item-button {
+        height: 50px;
+        margin: 20px auto;
+        padding: 5px 10px;
+        font-size: 1em;
+    }
+    
+}

@@ -5,6 +5,7 @@ import { Header } from '../header';
 import AuthProvider from '../../contexts/AuthContext';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
+import { Footer } from '../footer/Footer';
 
 class App extends React.Component {
     render() {
@@ -13,7 +14,10 @@ class App extends React.Component {
                 <AuthProvider>
                     <>
                         <Header />
-                        <Routes />
+                        <main>
+                            <Routes />
+                        </main>
+                        <Footer />
                     </>
                 </AuthProvider>
             </Provider>

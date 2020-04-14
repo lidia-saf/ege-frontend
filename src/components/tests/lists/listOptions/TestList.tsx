@@ -22,10 +22,10 @@ export const TestList: React.FC<{}> = () => {
                                     Тренировочный тест ЕГЭ № {index + 1} из банка ФИПИ
                                 </Link>
                             </li>
-                            <PersonalResult
+                            {/* <PersonalResult
                                 difficulty={'easy'}
                                 successResult={{passed: false, score: 0}}
-                            />
+                            /> */}
                         </div>
                     )
                 }))}

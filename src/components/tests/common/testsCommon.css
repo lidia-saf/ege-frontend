@@ -43,7 +43,6 @@
 .question-input-correct {
     width: 300px;
     padding: 2px;
-    position: relative;
     background: linear-gradient(to left, green, greenyellow);
     border-radius: 1px;
     margin: 0 0 20px;
@@ -52,7 +51,6 @@
 .question-input-wrong {
     width: 300px;
     padding: 2px;
-    position: relative;
     background: linear-gradient(to left, red, orangered);
     border-radius: 1px;
     margin: 0 0 20px;
@@ -65,4 +63,19 @@
 
 .question-input-container:first-child {
     margin-right: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+    .question-counter-wrong svg,
+    .question-counter-correct svg {
+        display: none;
+    }
+
+    .question-counter-wrong, .question-counter-correct {
+        display: none;
+    }
+
+    .question-input-correct, .question-input-wrong {
+        width: 280px;
+    }
 }

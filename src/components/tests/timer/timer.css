@@ -51,6 +51,18 @@
     opacity: 1;
 }
 
-.timer-h3 {
-    
+@media only screen and (max-width: 900px) {
+    .timer-container {
+        font-size: 1em;
+        padding: 15px;
+    }
+
+    .timer-container svg {
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    .timer-paragraph {
+        margin: 0 7px;
+    }
 }

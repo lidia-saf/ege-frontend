@@ -73,7 +73,7 @@ export const SearchBar: React.FC<ISearchBar> = ({ setFilterOption }) => {
         setFilterOption(filter);
     }
 
-    const onSelectChange = (option: Option) => {
+    const onSelectChange = (option: any) => {
         setFilter(option.value);
     }
 

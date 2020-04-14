@@ -9,6 +9,7 @@
 }
 
 .navigation-list {
+    position: static;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -54,4 +55,176 @@
 
 .logo-font:hover {
     font-size: 45px;
+}
+
+.logo-small {
+    display: none;
+}
+
+.menu-input {
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .navigation {
+        display: block;
+        width: 100%;
+        height: 80px;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: relative;
+        top: 30px;
+        left: 30px;
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .menu-input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background-color: #4754a1;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+    }
+
+    .menu-toggle span:hover{
+        background-color: darkblue;
+    }
+
+    .menu-toggle span:first-child {
+        transform-origin: 0% 0%;
+    }
+
+    .menu-toggle span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+
+    .menu-toggle .menu-input:checked ~ span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background-color: whitesmoke;
+    }
+
+    .menu-toggle .menu-input:checked ~ span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2,0.2);
+    }
+
+    .menu-toggle .menu-input:checked ~ span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+    
+    .navigation-list {
+        display: block;
+        position: absolute;
+        width: 300px;
+        height: calc(100vh + 100px);
+        margin: -100px 0 0 -50px;
+        padding: 50px;
+        padding-top: 125px;
+        background-color: #4754a1;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    }
+
+    .navigation-list .logo-font {
+        display: none;
+    }
+
+    .navigation-list-item {
+        padding: 10px 0;
+        font-size: 22px;
+    }
+
+    .menu-toggle .menu-input:checked ~ .navigation-list {
+        transform: none;
+    }
+
+    .navigation-list-item {
+        font-size: 14px;
+        text-transform: uppercase;
+        margin-right: 0;
+        list-style-type: none;
+    }
+    
+    .navigation-list-item a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+    
+    .navigation-list-item a:after {
+        content: '';
+        display: block;
+        width: 0%;
+        padding-top: 5px;
+        border-bottom: 1px solid whitesmoke;
+        transition: 0.3s;
+    }
+    
+    .navigation-list-item a:hover:after {
+        width: 100%;
+    }
+
+    .logo-small {
+        display: block;
+        position: relative;
+        top: -15px;
+        text-align: center;
+        font-family: 'Indie Flower', cursive;
+        font-size: 40px;
+        color: #4754a1;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .logo-small:hover {
+        font-size: 45px;
+        color: darkblue;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logo-small {
+        display: block;
+        position: relative;
+        top: -10px;
+        text-align: center;
+        font-family: 'Indie Flower', cursive;
+        font-size: 30px;
+        color: #4754a1;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .logo-small:hover {
+        font-size: 35px;
+        color: darkblue;
+    }
 }

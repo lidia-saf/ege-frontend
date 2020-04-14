@@ -1,3 +1,4 @@
+
 .tests-result-list-container {
     list-style-type: none;
     counter-reset: test-counter;
@@ -63,4 +64,31 @@
     border: 2px solid #4754a1;
     background-color: whitesmoke;
     color: #4754a1;
+}
+
+@media only screen and (max-width: 900px) {
+    .tests-results-list-item a {
+        font-size: 1em;
+        line-height: 1.2;
+    }
+
+    .tests-results-list-item:before {
+        font-size: 20px;
+        line-height: 2;
+        font-weight: 500;
+        height: 30px;
+        margin: auto 15px;
+        border-radius: 50px;
+        background-color: #4754a1;
+        border: 2px solid #4754a1;
+    }
+
+    .tests-results-list-item {
+        padding: 10px;
+    }
+
+    .tests-results-list-item-container {
+        height: auto;
+        padding: 15px 0;
+    }
 }

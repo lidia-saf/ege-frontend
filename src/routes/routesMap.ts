@@ -6,6 +6,7 @@ import { Home } from '../components/home/Home';
 import { Login } from '../components/login/Login';
 import { QuestionPage } from '../components/tests/questionPage/QuestionPage';
 import { TestPage } from '../components/tests/testpage/TestPage';
+import { DevPage } from '../common/devpage/DevPage';
 
 export interface IRoutesMap {
     path: string;
@@ -41,13 +42,13 @@ export const routesMap: IRoutesMap[] = [
     },
     {
         path: '/aboutexam',
-        component: AboutExam,
+        component: DevPage,
         exact: true,
         private: false
     },
     {
         path: '/materials',
-        component: Materials,
+        component: DevPage,
         exact: true,
         private: false
     },

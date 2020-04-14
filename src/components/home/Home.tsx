@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { WhyPoints } from './WhyPoints';
-import HomeStudyImage from '../../images/home_study.jpg';
+import HomeStudyImage from '../../images/home_image.png';
 import './home.css';
 
 export const Home: React.FC<{}> = () => {
