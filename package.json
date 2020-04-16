@@ -6,7 +6,7 @@
   "scripts": {
     "bundle": "webpack",
     "start": "yarn tslint && webpack-dev-server --mode development --open --hot",
-    "startProduction": "node ./src/server/index.js",
+    "startProduction": "npm install && node ./src/server/index.js",
     "check-types": "tsc",
     "tslint": "tslint -c ./tslint.json -p ./tsconfig.json --fix"
   },
