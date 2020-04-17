@@ -17,7 +17,6 @@ export const Header: React.FC<IHeader> = () => {
 
     const [menuOpened, setMenuOpened] = React.useState(false);
 
-
     return (
         <nav className='navigation'>
             <div className='menu-toggle'>

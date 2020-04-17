@@ -1,0 +1,259 @@
+.aboutexam-h2 {
+    color: #4754a1;
+    font-weight: 300;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 40px 30px 30px;
+    margin: 0;
+    width: auto;
+}
+
+.aboutexam-h2:after {
+    content: '';
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 5px;
+    border-bottom: 1px solid #4754a1;
+    transition: 0.3s;
+}
+
+.aboutexam-h2:hover:after {
+    width: 70%;
+}
+
+.aboutexam-baloon {
+    font-size: 1.5em;
+    line-height: 1.3;
+    font-weight: 300;
+    color: black;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.aboutexam-baloon:last-of-type {
+    margin-bottom: 50px;
+}
+
+.aboutexam-baloon a {
+    text-decoration: underline;
+    color: #4754a1;
+}
+
+.aboutexam-baloon a:hover, .aboutexam-baloon a:hover {
+    color: darkblue;
+}
+
+.aboutexam-section {
+    max-width: 80%;
+    margin: 0 auto 20px;
+    border-radius: 4px;
+    padding: 20px;
+    background: lavender;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: black;
+}
+
+.aboutexam-list {
+    list-style-type: "— ";
+}
+
+.flower-item,
+.flower-open-button {
+   background: #4754a1;
+   border-radius: 100%;
+   width: 103px;
+   height: 103px;
+   font-size: 0.8rem;
+   left: calc((100% - 103px)/2);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   color: whitesmoke;
+   -webkit-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+   -webkit-transition: -webkit-transform ease-out 0.2s;
+   transition: -webkit-transform ease-out 02.s;
+   transition: transform ease-out 0.2s;
+   transition: transform ease-out 0.2s, -webkit-transform ease-out 0.2s;
+   cursor: pointer;
+}
+
+.flower-open {
+    display: none;
+}
+
+.flower {
+    margin: 120px auto;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 26px;
+}
+
+.flower-item:hover {
+    background: #EEEEEE;
+    color: #4754a1;
+ }
+ 
+.flower-item:nth-child(3) {
+    -webkit-transition-duration: 180ms;
+    transition-duration: 180ms;
+}
+
+.flower-item:nth-child(4) {
+    -webkit-transition-duration: 180ms;
+    transition-duration: 180ms;
+}
+
+.flower-item:nth-child(5) {
+    -webkit-transition-duration: 180ms;
+    transition-duration: 180ms;
+}
+
+.flower-item:nth-child(6) {
+    -webkit-transition-duration: 180ms;
+    transition-duration: 180ms;
+}
+
+.flower-item:nth-child(7) {
+    -webkit-transition-duration: 180ms;
+    transition-duration: 180ms;
+}
+
+.flower-open-button {
+    z-index: 2;
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transition-duration: 400ms;
+    transition-duration: 400ms;
+    -webkit-transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+    transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+    cursor: pointer;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+ }
+ 
+.flower-open-button:hover {
+    -webkit-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+    transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+}
+
+.flower-open:checked + .flower-open-button {
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-duration: 200ms;
+    transition-duration: 200ms;
+    -webkit-transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+    transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+ }
+ 
+.flower-open:checked ~ .flower-item {
+    -webkit-transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+    transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+}
+
+.flower-open:checked ~ .flower-item:nth-child(3) {
+    transition-duration: 180ms;
+    -webkit-transition-duration: 180ms;
+    -webkit-transform: translate3d(0.08361px, -102.99997px, 0);
+    transform: translate3d(0.08361px, -102.99997px, 0);
+}
+
+.flower-open:checked ~ .flower-item:nth-child(4) {
+    transition-duration: 280ms;
+    -webkit-transition-duration: 280ms;
+    -webkit-transform: translate3d(95.9466px, -31.47586px, 0);
+    transform: translate3d(95.9466px, -31.47586px, 0);
+ }
+ 
+.flower-open:checked ~ .flower-item:nth-child(5) {
+    transition-duration: 380ms;
+    -webkit-transition-duration: 380ms;
+    -webkit-transform: translate3d(68.9466px, 77.47586px, 0);
+    transform: translate3d(68.9466px, 77.47586px, 0);
+}
+
+.flower-open:checked ~ .flower-item:nth-child(6) {
+    transition-duration: 480ms;
+    -webkit-transition-duration: 480ms;
+    -webkit-transform: translate3d(-63.91639px, 75.99997px, 0);
+    transform: translate3d(-63.91639px, 75.99997px, 0);
+}
+
+.flower-open:checked ~ .flower-item:nth-child(7) {
+    transition-duration: 580ms;
+    -webkit-transition-duration: 580ms;
+    -webkit-transform: translate3d(-98.86291px, -32.37936px, 0);
+    transform: translate3d(-98.86291px, -32.37936px, 0);
+}
+
+.flower-blue {
+    background-color: #4754a1;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+ 
+.flower-blue:hover {
+    color: #4754a1;
+    text-shadow: none;
+}
+ 
+.flower-green {
+    background-color: #47a145;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+ 
+.flower-green:hover {
+    color: #47a145;
+    text-shadow: none;
+}
+ 
+.flower-red {
+    background-color: #a11f47;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+ 
+.flower-red:hover {
+    color: #a11f47;
+    text-shadow: none;
+}
+ 
+.flower-purple {
+    background-color: #6747a1;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+ 
+.flower-purple:hover {
+    color: #6747a1;
+    text-shadow: none;
+}
+ 
+.flower-orange {
+    background-color: #47a194;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+ 
+.flower-orange:hover {
+    color: #47a194;
+    text-shadow: none;
+}
+ 
+.flower-lightblue {
+    background-color: #62C2E4;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+ 
+.flower-lightblue:hover {
+    color: #62C2E4;
+    text-shadow: none;
+}

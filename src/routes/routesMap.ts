@@ -42,7 +42,7 @@ export const routesMap: IRoutesMap[] = [
     },
     {
         path: '/aboutexam',
-        component: DevPage,
+        component: AboutExam,
         exact: true,
         private: false
     },
