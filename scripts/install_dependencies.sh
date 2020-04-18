@@ -1,9 +1,9 @@
 #!/bin/bash
 # update yum just in case
-sudo yum update -y
+yum update -y
 # get node into yum
 curl --silent --location https://rpm.nodesource.com/setup_10.x| bash -
 # install node and npm in one line
-sudo yum install -y nodejs
+yum install -y nodejs
 # install pm2 to restart node app
 npm i -g pm2@4.2.3
