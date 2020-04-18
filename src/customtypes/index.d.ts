@@ -5,6 +5,7 @@ export type UserAuth = {
     idToken: string;
     timestamp?: string | number;
     authenticated: boolean;
+    accessToken: string;
 };
 
 export type CognitoUser = {

@@ -7,12 +7,13 @@ import { Login } from '../components/login/Login';
 import { QuestionPage } from '../components/tests/questionPage/QuestionPage';
 import { TestPage } from '../components/tests/testpage/TestPage';
 import { DevPage } from '../common/devpage/DevPage';
+import { Admin } from '../components/admin/Admin';
 
 export interface IRoutesMap {
     path: string;
     component: React.Component | React.FC;
     exact: boolean;
-    private: boolean;
+    hidden: boolean;
 }
 
 export const routesMap: IRoutesMap[] = [
@@ -20,48 +21,54 @@ export const routesMap: IRoutesMap[] = [
         path: '/',
         component: Home,
         exact: true,
-        private: false
+        hidden: false
     },
     {
         path: '/tests',
         component: Tests,
         exact: true,
-        private: false
+        hidden: false
     },
     {
         path: '/tests/:testId',
         component: TestPage,
         exact: true,
-        private: false
+        hidden: false
     },
     {
         path: '/tests/:testId/question/:questionNumber',
         component: QuestionPage,
         exact: true,
-        private: false
+        hidden: false
     },
     {
         path: '/aboutexam',
         component: AboutExam,
         exact: true,
-        private: false
+        hidden: false
     },
     {
         path: '/materials',
         component: DevPage,
         exact: true,
-        private: false
+        hidden: false
     },
     {
         path: '/signup',
         component: Login,
         exact: true,
-        private: false
+        hidden: false
     },
     {
         path: '/signin',
         component: SignIn,
         exact: true,
-        private: false
+        hidden: false
+    },
+    {
+        path: '/admin',
+        component: Admin,
+        exact: true,
+        hidden: true
     }
 ];

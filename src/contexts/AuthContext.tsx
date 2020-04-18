@@ -18,6 +18,8 @@ interface IAuthContextInterface {
     setUserId: React.Dispatch<React.SetStateAction<string>>;
     setAuthStatus: (userAuth: UserAuth) => void;
     setUnauthStatus: () => void;
+    isUserAdminGroup: boolean;
+    setIsUserAdminGroup: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const authContext = React.createContext<IAuthContextInterface>({
@@ -33,7 +35,9 @@ export const authContext = React.createContext<IAuthContextInterface>({
     setUserId: () => {},
     setAuthStatus: () => {},
     setUnauthStatus: () => {},
-    openConfirmationCodeModal: () => {}
+    openConfirmationCodeModal: () => {},
+    isUserAdminGroup: false,
+    setIsUserAdminGroup: () => false
 });
 
 const { Provider } = authContext;
@@ -41,6 +45,7 @@ const { Provider } = authContext;
 const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     children
 }) => {
+    const [isUserAdminGroup, setIsUserAdminGroup] = React.useState(false);
     const [userTimestamp, setTimestamp] = React.useState(0);
     const [userId, setUserId] = React.useState('');
     const [username, setUsername] = React.useState('');
@@ -63,7 +68,9 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
                 userId,
                 setUserId,
                 userTimestamp,
-                setTimestamp
+                setTimestamp,
+                isUserAdminGroup,
+                setIsUserAdminGroup
             }}
             >
                 {children}

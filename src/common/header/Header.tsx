@@ -3,6 +3,7 @@ import './header.css';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../contexts/AuthContext';
 import { signOut } from '../../utils/auth';
+import { useHistory } from 'react-router-dom';
 
 interface IHeader {};
 
@@ -12,9 +13,10 @@ export const Header: React.FC<IHeader> = () => {
         setAuthStatus,
         setUsername,
         setTimestamp,
-        username
+        username,
+        isUserAdminGroup
     } = React.useContext(authContext);
-
+    const history = useHistory();
     const [menuOpened, setMenuOpened] = React.useState(false);
 
     return (
@@ -37,10 +39,14 @@ export const Header: React.FC<IHeader> = () => {
                     <li className='navigation-list-item'>
                         <Link onClick={() => setMenuOpened(prev => !prev)} to='/materials'>Материалы</Link>
                     </li>
+                    {isUserAdminGroup &&
+                    <li className='navigation-list-item'>
+                        <Link onClick={() => setMenuOpened(prev => !prev)} to='/admin'>Админка</Link>
+                    </li>}
                     <li className='navigation-list-item'>
                         {auth.authenticated ?
                         <a href=''
-                            onClick={() => signOut(username, setAuthStatus, setUsername, setTimestamp)}>Выйти</a>
+                            onClick={() => signOut(username, setAuthStatus, setUsername, setTimestamp, history)}>Выйти</a>
                         :
                         <Link onClick={() => setMenuOpened(prev => !prev)} to='/signup'>Вход</Link>}
                     </li>

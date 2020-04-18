@@ -12,6 +12,7 @@ import moment from 'moment';
 import { USER_AUTH_KEY } from './localstorage';
 import { DEFAULT_USER_AUTH } from './constants';
 import * as CustomTypes from '../customtypes'
+import { checkUserRights } from './customhooks/GroupHandler';
 
 const POOL_DATA = {
     UserPoolId: process.env.EGE_FRONTEND_COGNITO_USER_POOL_ID,
@@ -110,7 +111,8 @@ export const signIn = (
     setLoading: React.Dispatch<React.SetStateAction<boolean>>,
     setUsername: React.Dispatch<React.SetStateAction<string>>,
     setTimestamp: React.Dispatch<React.SetStateAction<number>>,
-    setAuthStatus: (userAuth: CustomTypes.UserAuth) => void
+    setAuthStatus: (userAuth: CustomTypes.UserAuth) => void,
+    setIsUserAdminGroup: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
     setLoading(true);
 
@@ -131,12 +133,16 @@ export const signIn = (
             setUsername(email);
             setTimestamp(+result.idToken.payload['custom:timestamp'] ||
             0);
+            let accessToken = result.getAccessToken().getJwtToken();
             setAuthStatus({
                 userId: result.idToken.payload.sub,
                 idToken: result.idToken.jwtToken,
                 timestamp: +result.idToken.payload['custom:timestamp'] || 0,
-                authenticated: true
+                authenticated: true,
+                accessToken
             });
+            let isAdmin = checkUserRights(accessToken);
+            setIsUserAdminGroup(isAdmin);
             history.push('/');
         },
         onFailure(err) {
@@ -151,7 +157,8 @@ export const signOut = (
     email: string,
     setAuthStatus: (userAuth: CustomTypes.UserAuth) => void,
     setUsername: React.Dispatch<React.SetStateAction<string>>,
-    setTimestamp: React.Dispatch<React.SetStateAction<number>>
+    setTimestamp: React.Dispatch<React.SetStateAction<number>>,
+    history: History | any
 ) => {
     const userData = {
         Username: email,
@@ -163,10 +170,12 @@ export const signOut = (
         userId: '',
         idToken: '',
         timestamp: 0,
-        authenticated: false
+        authenticated: false,
+        accessToken: ''
     });
     setUsername('');
     setTimestamp(0);
+    history.push('/');
 }
 
 export const getStoredUserAuth = (): CustomTypes.UserAuth => {

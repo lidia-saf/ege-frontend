@@ -17,7 +17,8 @@ export const SignInForm: React.FC<{}> = () => {
     const {
         setUsername,
         setTimestamp,
-        setAuthStatus
+        setAuthStatus,
+        setIsUserAdminGroup
     } = React.useContext(authContext);
 
     const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,7 +32,9 @@ export const SignInForm: React.FC<{}> = () => {
                 setLoading,
                 setUsername,
                 setTimestamp,
-                setAuthStatus);
+                setAuthStatus,
+                setIsUserAdminGroup
+                );
         }
     }
 
