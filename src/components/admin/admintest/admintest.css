@@ -1,0 +1,32 @@
+.admin-test h2 {
+    color: darkblue;
+}
+
+.admin-form label {
+    display: block;
+    font-size: 1em;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+.admin-form input {
+    display: block;
+    height: 30px;
+    border: 1px solid #4754a1;
+    border-radius: none;
+    background: transparent;
+    font-size: 0.9em;
+}
+
+.admin-form select {
+    display: block;
+    height: 30px;
+    border: 1px solid #4754a1;
+    border-radius: none;
+    background: transparent;
+    font-size: 0.9em;
+}
+
+.admin-test {
+    padding: 20px 5%;
+}

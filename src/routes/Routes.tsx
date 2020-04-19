@@ -11,18 +11,18 @@ export const Routes: React.FC<Props> = () => {
     useGroupHandler(setIsUserAdminGroup);
 
     return (
-            <Switch>
-                {routesMap.map(({ path, component, exact, hidden }: IRoutesMap) => {
-                    const Component = component;
-                    if (hidden && !isUserAdminGroup) {
-                        return;
-                    }
-                    return (
-                        <Route key={path} path={path} exact={exact}>
-                            <Component />
-                        </Route>
-                    )
-                })}
-            </Switch>
+        <Switch>
+            {routesMap.map(({ path, component, exact, hidden }: IRoutesMap) => {
+                const Component = component;
+                if (hidden && !isUserAdminGroup) {
+                    return;
+                }
+                return (
+                    <Route key={path} path={path} exact={exact}>
+                        <Component />
+                    </Route>
+                )
+            })}
+        </Switch>
     );
 };
