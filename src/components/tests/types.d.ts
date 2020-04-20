@@ -8,11 +8,12 @@ export interface IQuestion {
 
 export interface ISource {
     questionNumber: number;
+    questionDescription: string;
     testId: number;
     section: TSection;
     task: string;
     text: string;
-    possibleAnswers: string[];
+    possibleAnswers: string;
     correctAnswer: string;
 }
 

@@ -14,12 +14,12 @@ export const TestList: React.FC<{}> = () => {
     return (
         <>
             <ul className='tests-result-list-container'>
-                {!loading && (Array(maxTestId).fill('0').map((_, index) => {
+                {!loading ? (Array(maxTestId).fill('0').map((_, index) => {
                     return (
                         <div key={index} className='tests-results-list-item-container'>
                             <li className='tests-results-list-item'>
                                 <Link to={`/tests/${index + 1}`}>
-                                    Тренировочный тест ЕГЭ № {index + 1} из банка ФИПИ
+                                    Тренировочный тест ЕГЭ № {index + 1}
                                 </Link>
                             </li>
                             {/* <PersonalResult
@@ -28,7 +28,8 @@ export const TestList: React.FC<{}> = () => {
                             /> */}
                         </div>
                     )
-                }))}
+                })) :
+                <div className='general-loader' />}
             </ul>
         </>
     )

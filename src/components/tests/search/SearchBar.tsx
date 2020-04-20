@@ -11,11 +11,6 @@ interface ISearchBar {
     setFilterOption: React.Dispatch<React.SetStateAction<IFilterOption>>;
 }
 
-interface Option {
-    value: string;
-    label: string;
-}
-
 const options = [
     { value: 'question', label: 'Вопрос' },
     { value: 'test', label: 'Тест' }
@@ -39,7 +34,7 @@ const selectStyles = {
         ...styles,
         cursor: 'pointer'
     }),
-    option: (styles: Partial<Styles>, { data, isDisabled, isFocused, isSelected }: Props) => {
+    option: (styles: Partial<Styles>, { isDisabled, isFocused, isSelected }: Props) => {
       return {
         ...styles,
         backgroundColor: isDisabled
@@ -79,6 +74,7 @@ export const SearchBar: React.FC<ISearchBar> = ({ setFilterOption }) => {
 
     return (
         <>
+            <h2 className='general-h2'>Ищи целые тесты или индивидуальные вопросы</h2>
             <form className='search-form-container' onSubmit={handleSubmit}>
                 {/* <input
                     type='text'

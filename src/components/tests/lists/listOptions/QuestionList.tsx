@@ -15,7 +15,7 @@ export const QuestionList: React.FC<{}> = () => {
 
     return (
         <div className='question-result-list-container'>
-            {!loading ? (questions as IQuestion[]).map((item, index) => {
+            {!loading ? questions.length > 0 ? (questions as IQuestion[]).map((item, index) => {
                 return (
                     <div key={index} className='question-results-list-item-container'>
                         <li className='question-results-list-item'>
@@ -31,7 +31,7 @@ export const QuestionList: React.FC<{}> = () => {
                         </Link>
                     </div>
                 )
-            }) :
+            }) : <div className='question-result-error'>Извините, что-то пошло не так...</div> :
             <div className='general-loader' />}
         </div>
     )

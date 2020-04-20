@@ -44,18 +44,11 @@ const useApiToExtractAllQuestions = (
         const fetchQuestions = async () => {
             try {
                 dispatch(fetchAllQuestions(sortOption));
-                // const query = `?sort=${sortOption}`;
-                // const result = await axios(`/api/tests/v1/get${query}`);
-                if (!isCancelled) {
-                    // setQuestions(result.data.hits.hits);
-                }
             } catch (e) {
                 if (!isCancelled) {}
             }
         }
-        if (questions.length === 0) {
-            fetchQuestions();
-        }
+        fetchQuestions();
         return () => {
             isCancelled = true;
         }

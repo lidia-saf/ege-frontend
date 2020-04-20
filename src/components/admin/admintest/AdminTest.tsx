@@ -33,9 +33,8 @@ export const AdminTest: React.FC<{}> = () => {
         try {
             let result: any = await axios.post(url, data);
             console.log(result);
-            if (result.result === 'created') {
-                setResult('Вопрос создан успешно');
-            }
+            setLoading(false);
+            setResult('Вопрос создан успешно');
         } catch (err) {
             console.log(err);
             setLoading(false);
@@ -47,10 +46,10 @@ export const AdminTest: React.FC<{}> = () => {
         <div className='admin-test'>
             <h2>Добавить новый вопрос</h2>
             <form className='admin-form' onSubmit={onSubmit}>
-                <label htmlFor='questionNumber'>Номер вопроса как в тесте ЕГЭ (только цифра без буквы)</label>
-                <input id='questionNumber' type='number' min={1} max={44} onChange={(e) => setQuestionNumber(e.currentTarget.value)} />
                 <label htmlFor='testId'>Номер теста для вопроса</label>
                 <input id='testId' type='number' onChange={(e) => setTestId(e.currentTarget.value)}/>
+                <label htmlFor='questionNumber'>Номер вопроса как в тесте ЕГЭ (только цифра без буквы)</label>
+                <input id='questionNumber' type='number' min={1} max={44} onChange={(e) => setQuestionNumber(e.currentTarget.value)} />
                 <label htmlFor='section'>Выбери название раздела ЕГЭ вопроса</label>
                 <select id='section' onChange={(e) => setSection(e.currentTarget.value)}>
                     <option value=''>Выбери один из разделов из списка</option>
@@ -66,25 +65,17 @@ export const AdminTest: React.FC<{}> = () => {
                 что в экзамене в прямоугольнике</label>
                 <input id='questionDescription' type='text' onChange={(e) => setQuestionDescription(e.currentTarget.value)} />
                 <label htmlFor='task'>Задание</label>
-                <input id='task' type='text' onClick={(e) => setTask(e.currentTarget.value)} />
+                <input id='task' type='text' onChange={(e) => setTask(e.currentTarget.value)} />
                 <label htmlFor='text'>Текст</label>
                 <RichTextEditor text={text} setText={setText} />
                 <label htmlFor='possibleAnswers'>Добавь варианты ответов (списком с соответствующими буквами в редакторе)</label>
                 <RichTextEditor text={possibleAnswers} setText={setPossibleAnswers} />
                 <label htmlFor='correctAnswer'>Запиши правильный ответ последовательностью символов без запятых, пробелов и других знаков - ABCDEG или 1234567</label>
                 <input id='correctAnswer' type='text' onChange={(e) => setCorrectAnswer(e.currentTarget.value)}/>
-                <button type='submit'>Отправить</button>
+                <div className='admin-test-button-wrapper'>
+                    <button className='general-button' type='submit'>{loading ? 'Загружаем' : !result ? 'Отправить' : result}</button>
+                </div>
             </form>
         </div>
     )
 }
-/*
-export interface ISource {
-    questionNumber: number;
-    testId: number;
-    section: TSection;
-    task: string;
-    text: string;
-    possibleAnswers: string[];
-    correctAnswer: string;
-}*/

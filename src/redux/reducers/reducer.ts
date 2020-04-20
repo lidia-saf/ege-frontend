@@ -18,7 +18,7 @@ const initialState: ITestsReducer = {
     testMaxValue: 0
 }
 
-export const testsReducer = (state = initialState, action) => {
+export const testsReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case FETCH_ALL_QUESTIONS_STARTED:
             return {

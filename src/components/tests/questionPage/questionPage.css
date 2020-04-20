@@ -49,10 +49,22 @@
     border: 2px solid #4754a1;
 }
 
-.question-page-task {
+.question-page-questionDescription {
     border: 1px solid #4754a1;
     border-radius: 4px;
     width: 85%;
+    line-height: 1.2em;
+    font-size: 1.1em;
+    margin: 0 0 20px;
+    text-transform: none;
+    padding: 10px;
+}
+
+.question-page-task {
+    border-radius: 4px;
+    width: 85%;
+    color: black;
+    margin: 20px 0;
     line-height: 1.2em;
     font-size: 1.1em;
     margin: 0 0 20px;

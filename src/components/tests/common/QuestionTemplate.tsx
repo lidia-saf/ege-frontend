@@ -76,15 +76,12 @@ export const QuestionTemplate: React.FC<IQuestionTemplate> = ({
             <h4 className='question-page-section'>Раздел: {sectionTranspiler[question._source.section]}</h4>}
             <div className='question-page-flex-container'>
                 <div className='question-page-number'>{question['_source'].questionNumber}</div>
-                <h5 className='question-page-task'>{question['_source'].task}</h5>
+                <h5 className='question-page-questionDescription'>{question['_source'].questionDescription}</h5>
             </div>
+            <h5 className='question-page-task'>{question['_source'].task}</h5>
             {question['_source'].text &&
             <p className='question-page-text'>{question['_source'].text}</p>}
-            <ul className='question-page-possible-answers'>
-                {question['_source'].possibleAnswers.map((item, index) => {
-                    return <li key={index}>{item}</li>
-                })}
-            </ul>
+            <div className='question-page-possible-answers' dangerouslySetInnerHTML={{__html: question['_source'].possibleAnswers}}/>
             <div className='question-input-container'>
                 <CorrectnessMark assess={assess} correct={correct ? correct : false} />
                 <div className={`${!assess ? `general-input-wrapper` : correct ? `question-input-correct` : `question-input-wrong`}`}>
@@ -96,7 +93,6 @@ export const QuestionTemplate: React.FC<IQuestionTemplate> = ({
                         type='text' />
                 </div>
             </div>
-
         </>
     )
 }
