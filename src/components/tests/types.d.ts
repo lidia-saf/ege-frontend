@@ -9,6 +9,7 @@ export interface IQuestion {
 export interface ISource {
     questionNumber: number;
     questionDescription: string;
+    mediaKey?: string;
     testId: number;
     section: TSection;
     task: string;

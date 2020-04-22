@@ -82,7 +82,6 @@ export const AdminTest: React.FC<{}> = () => {
                 <input id='questionDescription' type='text' onChange={(e) => setQuestionDescription(e.currentTarget.value)} />
                 <label htmlFor='task'>Задание</label>
                 <input id='task' type='text' onChange={(e) => setTask(e.currentTarget.value)} />
-                <label htmlFor='media'>Добавь аудио-файл или картинку</label>
                 <MediaFileLoader
                     testNumber={testId}
                     questionNumber={questionNumber}

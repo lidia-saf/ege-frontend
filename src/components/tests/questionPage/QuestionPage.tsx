@@ -9,6 +9,7 @@ import '../../../styles/index.css';
 import { IAppState } from '../../../customtypes';
 import { Buttons } from '../common/NextPrevButtons';
 import { SubmitCheckButton } from '../common/SubmitCheckButton';
+import { CDN_URL } from '../../../utils/constants';
 
 export const QuestionPage: React.FC<{}> = () => {
     const { testId, questionNumber } = useParams()
@@ -77,6 +78,15 @@ export const QuestionPage: React.FC<{}> = () => {
                         <h5 className='question-page-task'>{question['_source'].questionDescription}</h5>
                     </div>
                     <h5 className='question-page-task'>{question['_source'].task}</h5>
+                    {question['_source'].mediaKey &&
+                    question['_source'].section === 'speaking' &&
+                    <img src={`${CDN_URL}/${question['_source'].mediaKey}`} className='question-image' />}
+                    {question['_source'].mediaKey &&
+                    question['_source'].section === 'listening' &&
+                    <audio controls preload='none' style={{'width': '480px'}}>
+                        <source src={`${CDN_URL}/${question['_source'].mediaKey}`} type='audio/mp4' />
+                        <p>Your browser does not support HTML5 audio. Use Chrome, please</p>
+                    </audio>}
                     {question['_source'].text &&
                     <p className='question-page-text'>{question['_source'].text}</p>}
                     <ul className='question-page-possible-answers'>

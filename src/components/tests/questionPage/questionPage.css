@@ -169,6 +169,17 @@
     outline: none;
 }
 
+.question-image {
+    width: 60%;
+    margin: 20px auto;
+}
+
+audio {
+    display: block;
+    width: 80%;
+    margin: 20px 0;
+}
+
 @media only screen and (max-width: 900px) {
     .question-link {
         padding: 10px 15px;

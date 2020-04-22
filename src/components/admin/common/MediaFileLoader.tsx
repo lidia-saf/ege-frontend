@@ -15,6 +15,7 @@ export const MediaFileLoader: React.FC<IMediaFileLoader> = ({ testNumber, questi
     const [fileUploadResult, setFileUploadResult] = React.useState<null | {[x: string]: any}>(null);
     const [loading, setLoading] = React.useState(false);
     const [isValid, setIsValid] = React.useState(false);
+    const [mediaType, setMediaType] = React.useState('audio');
 
     const sendImage = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -24,8 +25,14 @@ export const MediaFileLoader: React.FC<IMediaFileLoader> = ({ testNumber, questi
             formData.append('filename', `test/${testNumber}/${questionNumber}`);
             setLoading(true);
             try {
-                let result = await axios.post('http://localhost:3001/api/media/v1/post',
-                    formData, {headers: {'Content-Type': 'multipart/form-data'}});
+                let result = await axios('http://localhost:3001/api/media/v1/post', {
+                    method: 'post',
+                    data: formData,
+                    withCredentials: true,
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
                 setLoading(false);
                 setFileUploadResult(result);
                 setMediaKey(result.data.Key);
@@ -48,7 +55,12 @@ export const MediaFileLoader: React.FC<IMediaFileLoader> = ({ testNumber, questi
     }, [questionNumber, testNumber, loading])
 
     return (
-        <div>
+        <div className='mediauploader'>
+            <label htmlFor='media'>Добавь аудиофайл или картинку</label>
+            <select id='mediaType' onChange={(e) => setMediaType(e.target.value)}>
+                <option value='audio'>Аудиофайл</option>
+                <option value='image'>Картинка</option>
+            </select>
             <input type='file' name='upload' id='fileUpload' onChange={onChange} />
             {!isValid && <div className='mediaupload-warning'>Добавь номер теста и номер вопроса в форме перед загрузкой медиафайла</div>}
             <button disabled={!isValid} onClick={(e) => sendImage(e)}>Загрузить картинку</button>
@@ -56,7 +68,12 @@ export const MediaFileLoader: React.FC<IMediaFileLoader> = ({ testNumber, questi
                 <>
                     <label htmlFor='fileLink'></label>
                     <input id='fileLink' type='text' name='fileLink' disabled={true} value={`cdn.sdamenglish.com/${fileUploadResult.data.Key}`}/>
-                    <img src={`${CDN_URL}/${fileUploadResult.data.Key}`} width='150' />
+                    {mediaType === 'image' && <img src={`${CDN_URL}/${fileUploadResult.data.Key}`} width='150' />}
+                    {mediaType === 'audio' &&
+                    <audio controls preload='none' style={{'width': '480px'}}>
+                        <source src={`${CDN_URL}/${fileUploadResult.data.Key}`} type='audio/mp4' />
+                        <p>Your browser does not support HTML5 audio. Use Chrome, please</p>
+                    </audio>}
                 </> :
             fileUploadResult ? <div>Произошла ошибка, файл не загрузился</div> : null
             }

@@ -79,3 +79,14 @@
         width: 280px;
     }
 }
+
+.question-image {
+    width: 50%;
+    margin: 20px auto;
+}
+
+audio {
+    display: block;
+    width: 80%;
+    margin: 20px 0;
+}

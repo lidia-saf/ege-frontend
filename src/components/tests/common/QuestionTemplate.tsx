@@ -7,6 +7,7 @@ import TickIcon from '../../../images/tick_icon.svg';
 import CrossIcon from '../../../images/cross_icon.svg';
 import './testsCommon.css';
 import SVG from 'react-inlinesvg';
+import { CDN_URL } from '../../../utils/constants';
 
 interface IQuestionTemplate {
     question: IQuestion,
@@ -79,6 +80,15 @@ export const QuestionTemplate: React.FC<IQuestionTemplate> = ({
                 <h5 className='question-page-questionDescription'>{question['_source'].questionDescription}</h5>
             </div>
             <h5 className='question-page-task'>{question['_source'].task}</h5>
+            {question['_source'].mediaKey &&
+            question['_source'].section === 'speaking' &&
+            <img src={`${CDN_URL}/${question['_source'].mediaKey}`} className='question-image' />}
+            {question['_source'].mediaKey &&
+            question['_source'].section === 'listening' &&
+            <audio controls preload='none' style={{'width': '480px'}}>
+                <source src={`${CDN_URL}/${question['_source'].mediaKey}`} type='audio/mp4' />
+                <p>Your browser does not support HTML5 audio. Use Chrome, please</p>
+            </audio>}
             {question['_source'].text &&
             <p className='question-page-text'>{question['_source'].text}</p>}
             <div className='question-page-possible-answers' dangerouslySetInnerHTML={{__html: question['_source'].possibleAnswers}}/>
