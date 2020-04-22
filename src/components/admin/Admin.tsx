@@ -11,7 +11,6 @@ export const Admin: React.FC<{}> = () => {
                 <p>Тесты</p>
                 <ul className='admin-sections'>
                     <li onClick={() => setSection('tests-add')}>Добавить новые вопросы</li>
-                    <li onClick={() => setSection('tests-delete')}>Удалить существующие вопросы</li>
                 </ul>
             </nav>
             {section === 'tests-add' && <AdminTest />}

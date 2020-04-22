@@ -18,6 +18,10 @@
     font-size: 0.9em;
 }
 
+.admin-form input[type=text] {
+    width: 100%;
+}
+
 .admin-form select {
     display: block;
     height: 30px;

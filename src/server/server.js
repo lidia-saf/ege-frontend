@@ -9,7 +9,7 @@ const app = express();
 const apiProxy = httpProxy.createProxyServer();
 
 app.use(cors());
-app.get("/api/*", function(req, res) {
+app.all("/api/*", function(req, res) {
     apiProxy.web(req, res, { target: 'http://localhost:3001' });
 });
 

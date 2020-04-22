@@ -8,6 +8,7 @@ import { QuestionPage } from '../components/tests/questionPage/QuestionPage';
 import { TestPage } from '../components/tests/testpage/TestPage';
 import { DevPage } from '../common/devpage/DevPage';
 import { Admin } from '../components/admin/Admin';
+import { AdminMaterials } from '../components/admin/adminmaterials/AdminMaterials';
 
 export interface IRoutesMap {
     path: string;

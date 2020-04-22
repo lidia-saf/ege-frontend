@@ -1,0 +1,38 @@
+.mediauploader input, .mediauploader select {
+    display: block;
+}
+
+input[type=file] {
+    font-size: 1.25em;
+    font-weight: 300;
+    color: white;
+    background-color: #4754a1;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 0 10px;
+    display: flex;
+    padding: 3px;
+}
+
+input[type=file]:focus,
+input[type=file]:hover {
+    background-color: lavender;
+    color: #4754a1;
+}
+
+.mediaupload-warning {
+    padding: 7px 0;
+    color: darkmagenta;
+}
+
+.mediauploader-loading {
+    color: darkblue;
+    animation-name: loader;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loader {
+    from {color: darkblue;}
+    to {color: lavender;}
+}

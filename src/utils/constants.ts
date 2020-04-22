@@ -4,3 +4,5 @@ export const DEFAULT_USER_AUTH = Object.freeze({
     authenticated: false,
     accessToken: ''
 })
+
+export const CDN_URL: string = 'https://cdn.sdamenglish.com';
