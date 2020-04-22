@@ -25,7 +25,7 @@ export const MediaFileLoader: React.FC<IMediaFileLoader> = ({ testNumber, questi
             formData.append('filename', `test/${testNumber}/${questionNumber}`);
             setLoading(true);
             try {
-                let result = await axios('http://localhost:3001/api/media/v1/post', {
+                let result = await axios('/api/media/v1/post', {
                     method: 'post',
                     data: formData,
                     withCredentials: true,
