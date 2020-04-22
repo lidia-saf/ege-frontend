@@ -50,7 +50,11 @@ export const AdminTest: React.FC<{}> = () => {
         }
 
         try {
-            await axios.post(url, data);
+            await axios(url, {
+                method: 'post',
+                data: data,
+                withCredentials: true
+            });
             setLoading(false);
             setResult('Вопрос создан успешно');
         } catch (err) {
