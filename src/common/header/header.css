@@ -82,6 +82,7 @@
         z-index: 1;
         -webkit-user-select: none;
         user-select: none;
+        width: 50px;
     }
 
     .menu-input {

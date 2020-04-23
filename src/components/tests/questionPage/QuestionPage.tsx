@@ -10,6 +10,7 @@ import { IAppState } from '../../../customtypes';
 import { Buttons } from '../common/NextPrevButtons';
 import { SubmitCheckButton } from '../common/SubmitCheckButton';
 import { CDN_URL } from '../../../utils/constants';
+import { AnswerFormat } from '../common/AnswerFormat';
 
 export const QuestionPage: React.FC<{}> = () => {
     const { testId, questionNumber } = useParams()
@@ -71,6 +72,7 @@ export const QuestionPage: React.FC<{}> = () => {
                     previous={getPreviousLink()}
                     next={getNextLink()}
                 />
+                <AnswerFormat />
                 <div className='question-page-container'>
                     <h4 className='question-page-section'>Раздел: {sectionTranspiler[question._source.section]}</h4>
                     <div className='question-page-flex-container'>

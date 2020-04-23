@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { SubmitCheckButton } from '../common/SubmitCheckButton';
 import { Buttons } from '../common/NextPrevButtons';
 import { Timer } from '../timer/Timer';
+import { AnswerFormat } from '../common/AnswerFormat';
 
 export const TestPage: React.FC<{}> = () => {
     const { testId } = useParams();
@@ -38,6 +39,7 @@ export const TestPage: React.FC<{}> = () => {
                 />
                 <h3 className='test-page-title'>Тренировочный Тест №{testId}</h3>
                 <Timer />
+                <AnswerFormat />
                 <form onSubmit={e => onSubmit(e)}>
                     <div className='question-page-container'>
                         {(questions as IQuestion[]).map((item, index) => {

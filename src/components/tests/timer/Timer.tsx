@@ -55,7 +55,7 @@ export const Timer: React.FC<{}> = () => {
                 Осталось времени: {minutes < 10 ? `0${minutes}` : minutes} минут {seconds < 10 ? `0${seconds}` : seconds} секунд
             </p>
             <GlobalModal
-                title='Сделаем решение тестов более интересным?'
+                title=''
                 modalDisplay={<Notification />}
                 isOpen={open}
                 toggleModal={onCloseModal}
