@@ -22,6 +22,13 @@
     width: 70%;
 }
 
+.aboutexam-svg {
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 .aboutexam-baloon {
     font-size: 1.5em;
     line-height: 1.3;

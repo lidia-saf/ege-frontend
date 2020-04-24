@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import './aboutexam.css';
+import ClickIcon from '../../images/click_icon.svg';
+import SVG from 'react-inlinesvg';
 
 interface IAboutExam {};
 
@@ -64,6 +66,9 @@ export const AboutExam: React.FC<IAboutExam> = () => {
                 Устная часть экзамена сдается по желанию во второй день.
             </p>
             <h2 className='aboutexam-h2'>Какие части входят в ЕГЭ по английскому?</h2>
+            <div className='aboutexam-svg'>
+                <SVG src={ClickIcon} />
+            </div>
             <div className='flower'>
                 <input
                     type='checkbox'
