@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const dotenv = require('dotenv');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = () => {
   const env = dotenv.config().parsed;
@@ -65,6 +66,7 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         template: './src/index.html'
       }),
+      new FaviconsWebpackPlugin('./src/favicons/favicon.png'),
       new webpack.DefinePlugin(envKeys),
       new BundleAnalyzerPlugin()
     ]

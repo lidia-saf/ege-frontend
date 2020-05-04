@@ -1,16 +1,12 @@
 import * as React from 'react';
 import SVG from 'react-inlinesvg';
 import StopwatchIcon from '../../../images/stopwatch_icon.svg';
-import PlayIcon from '../../../images/play_icon.svg';
-import PauseIcon from '../../../images/pause_icon.svg';
-import StopIcon from '../../../images/stop_icon.svg';
-import RestartIcon from '../../../images/restart_icon.svg';
 
 import './timer.css';
 import { GlobalModal } from '../../../common/modal/Modal';
 import { Notification } from './Notification';
 
-export const Timer: React.FC<{}> = () => {
+export const Timer: React.FC<{ time: number}> = ({ time }) => {
     const [minutes, setMinutes] = React.useState(180);
     const [seconds, setSeconds] = React.useState(0);
     const [open, setOpenModal] = React.useState(false);
@@ -41,6 +37,7 @@ export const Timer: React.FC<{}> = () => {
 
     React.useEffect(() => {
         setOpenModal(true);
+        setMinutes(time)
     }, [])
 
     const onCloseModal = () => {

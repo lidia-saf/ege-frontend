@@ -5,6 +5,7 @@ import { fetchAllQuestions } from '../../../redux/actions/fetchAllQuestions';
 import { findMaxValueOfTests } from '../../../redux/actions/findMaxValueOfTests';
 import { IAppState } from '../../../customtypes';
 import { fetchTest } from '../../../redux/actions/fetchTest';
+import { fetchAllTestsDescription } from '../../../redux/actions/fetchTestDescription';
 
 const useApiToExtractMaxTestId = () => {
     const testMaxValue = useSelector(state => (state as IAppState).testsReducer.testMaxValue);
@@ -83,7 +84,30 @@ const useApiToGetTestByTestId = (
     }, [testId])
 }
 
+const useApiToExtractTestDescriptions = () => {
+    const dispatch = useDispatch();
+    const testDescriptions = useSelector(state => (state as IAppState).testDescriptionsReducer.testDescriptions);
+
+    useEffect(() => {
+        let isCancelled = false;
+        const fetchTestDescriptions = async () => {
+            try {
+                dispatch(fetchAllTestsDescription());
+            } catch (e) {
+                if (!isCancelled) {}
+            }
+        }
+        if (testDescriptions.length === 0 && !isCancelled) {
+            fetchTestDescriptions();
+        }
+        return () => {
+            isCancelled = true;
+        }
+    }, []);
+}
+
 export { useApiToExtractMaxTestId,
         useApiToExtractAllQuestions,
-        useApiToGetTestByTestId
+        useApiToGetTestByTestId,
+        useApiToExtractTestDescriptions
     }

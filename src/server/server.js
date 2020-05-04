@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors());
 
-app.use('/api', createProxyMiddleware({ target: 'http://localhost:3001', origin: true }));
+app.use('/api', createProxyMiddleware({ target: 'http://localhost:3001', origin: true, proxyTimeout: 60000 }));
 
 app.use(express.static("dist"))
 

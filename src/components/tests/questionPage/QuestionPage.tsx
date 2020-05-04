@@ -79,18 +79,18 @@ export const QuestionPage: React.FC<{}> = () => {
                         <div className='question-page-number'>{question['_source'].questionNumber}</div>
                         <h5 className='question-page-task'>{question['_source'].questionDescription}</h5>
                     </div>
-                    <h5 className='question-page-task'>{question['_source'].task}</h5>
                     {question['_source'].mediaKey &&
                     question['_source'].section === 'speaking' &&
                     <img src={`${CDN_URL}/${question['_source'].mediaKey}`} className='question-image' />}
                     {question['_source'].mediaKey &&
                     question['_source'].section === 'listening' &&
-                    <audio controls preload='none' style={{'width': '480px'}}>
+                    <audio controls preload='none'>
                         <source src={`${CDN_URL}/${question['_source'].mediaKey}`} type='audio/mp4' />
                         <p>Your browser does not support HTML5 audio. Use Chrome, please</p>
                     </audio>}
                     {question['_source'].text &&
                     <p className='question-page-text'>{question['_source'].text}</p>}
+                    <h5 className='question-page-task'>{question['_source'].task}</h5>
                     <ul className='question-page-possible-answers'>
                         <div dangerouslySetInnerHTML={{__html: question['_source'].possibleAnswers}}></div>
                     </ul>

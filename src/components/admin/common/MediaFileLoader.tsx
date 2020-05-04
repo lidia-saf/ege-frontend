@@ -70,7 +70,7 @@ export const MediaFileLoader: React.FC<IMediaFileLoader> = ({ testNumber, questi
                     <input id='fileLink' type='text' name='fileLink' disabled={true} value={`cdn.sdamenglish.com/${fileUploadResult.data.Key}`}/>
                     {mediaType === 'image' && <img src={`${CDN_URL}/${fileUploadResult.data.Key}`} width='150' />}
                     {mediaType === 'audio' &&
-                    <audio controls preload='none' style={{'width': '480px'}}>
+                    <audio controls preload='none'>
                         <source src={`${CDN_URL}/${fileUploadResult.data.Key}`} type='audio/mp4' />
                         <p>Your browser does not support HTML5 audio. Use Chrome, please</p>
                     </audio>}

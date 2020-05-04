@@ -1,27 +1,35 @@
 .personal-result-container {
     display: flex;
     position: relative;
-}
-
-.personal-result-difficulty {
-    text-transform: lowercase;
-    color: whitesmoke;
-    border-radius: 10px;
-    padding: 5px 5px;
-    margin: 0 10px 0 104px;
-    position: absolute;
     top: -10px;
+    margin: 0 0 0 90px;
 }
 
-.difficulty-easy {
-    background-color: #00a452;
+.personal-result-test-type {
+    display: flex;
+    align-items: flex-end;
+    line-height: 20px;
+    font-size: 1em;
+    font-weight: 300;
+    cursor: pointer;
+    color: #4767a1;
+    border-radius: 2px;
+    padding: 5px 5px;
+    margin: 0 10px;
+    top: -10px;
+    white-space: nowrap;
 }
 
-.difficulty-medium {
-    background-color: #EE7600;
+.personal-result-test-type svg {
+    height: 20px;
+    margin-right: 6px;
+    fill: #4767a1;
 }
 
-.difficulty-hard {
-    background-color: #a40000;
+@media only screen and (max-width: 900px) {
+    .personal-result-container {
+        flex-wrap: wrap;
+        margin: 0 0 0 20px;
+        top: 0;
+    }
 }
-

@@ -109,7 +109,7 @@ h5 {
 
 .general-input:focus, .general-input:active {
     cursor: pointer;
-    box-shadow: 0px 1px 25px 0px rgba(71,84,161,1);
+    box-shadow: 0px 1px 10px 0px rgba(71,84,161,1);
 }
 
 .general-input::placeholder{

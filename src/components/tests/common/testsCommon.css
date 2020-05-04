@@ -88,5 +88,18 @@
 audio {
     display: block;
     width: 80%;
-    margin: 20px 0;
+    margin: 0 0 20px;
+    margin: 20px 0 20px 12px;
+}
+
+.question-page-possible-answers p {
+    margin: 0;
+}
+
+.question-page-possible-answers p:last-of-type {
+    margin: 0 0 20px 0x;
+}
+
+.question-page-possible-answers ol {
+    margin: 0;
 }

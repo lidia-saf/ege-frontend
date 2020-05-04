@@ -11,12 +11,9 @@
 }
 
 .question-page-container .general-input-wrapper {
-    margin-left: 40px;
+    margin: 20px 0 20px;
 }
 
-.question-page-container .general-button {
-    margin-left: 40px;
-}
 
 .question-page-section {
     font-size: 20px;
@@ -30,12 +27,14 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin: 0 auto;
 }
 
 .question-page-number {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: none;
     color: whitesmoke;
     font-family: 'Roboto', sans-serif;
     font-size: 35px;
@@ -66,8 +65,8 @@
     color: black;
     margin: 20px 0;
     line-height: 1.2em;
-    font-size: 1.1em;
-    margin: 0 0 20px;
+    font-size: 1.2em;
+    margin: 10px 0 15px 10px;
     text-transform: none;
     padding: 10px;
 }
@@ -82,8 +81,18 @@
     font-size: 1.2em;
     color: black;
     padding: 10px;
+    margin: 0;
 }
 
+.question-page-text p {
+    margin: 0;
+    word-break: break-word;
+}
+
+.question-page-text h1 {
+    margin: 0 0 10px;
+    font-size: 1.6em;
+}
 
 .question-wrong-answer {
     padding: 5px 10px;
@@ -177,7 +186,6 @@
 audio {
     display: block;
     width: 80%;
-    margin: 20px 0;
 }
 
 @media only screen and (max-width: 900px) {
@@ -190,7 +198,7 @@ audio {
     .question-page-flex-container {
         display: flex;
         align-items: flex-start;
-        margin: 20px 0 0;
+        margin: 20px auto 0;
     }
 
     .question-page-number {
@@ -206,10 +214,11 @@ audio {
         border-radius: 4px;
         width: 85%;
         line-height: 1.2em;
-        font-size: 1.1em;
+        font-size: 1.2em;
+        font-weight: 600;
         margin: 0;
         text-transform: none;
-        padding: 0 10px;
+        padding: 10px 0;
         text-align: left;
     }
 

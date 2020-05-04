@@ -1,34 +1,37 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import '../testslist.css';
-import { useApiToExtractMaxTestId } from '../../testshooks/testhooks';
+import { useApiToExtractMaxTestId, useApiToExtractTestDescriptions } from '../../testshooks/testhooks';
 import { Link } from 'react-router-dom';
 import { PersonalResult } from '../../personalResult/PersonalResult';
 import { IAppState } from '../../../../customtypes';
+import { ITestDescription } from 'components/tests/types';
 
 export const TestList: React.FC<{}> = () => {
     useApiToExtractMaxTestId();
-    const maxTestId = useSelector(state => (state as IAppState).testsReducer.testMaxValue);
-    const loading = useSelector(state => (state as IAppState).testsReducer.loading);
+    useApiToExtractTestDescriptions();
+    const loading = useSelector(state => (state as IAppState).testDescriptionsReducer.loading);
+    const testsDescriptions = useSelector(state => (state as IAppState).testDescriptionsReducer.testDescriptions);
 
     return (
         <>
             <ul className='tests-result-list-container'>
-                {!loading ? (Array(maxTestId).fill('0').map((_, index) => {
+                {(!loading && testsDescriptions.length) > 0 ? (testsDescriptions as ITestDescription[]).map((item, index) => {
                     return (
                         <div key={index} className='tests-results-list-item-container'>
                             <li className='tests-results-list-item'>
-                                <Link to={`/tests/${index + 1}`}>
-                                    Тренировочный тест ЕГЭ № {index + 1}
+                                <Link to={`/tests/${item['_source'].testId}`}>
+                                    {item['_source'].name}
                                 </Link>
                             </li>
-                            {/* <PersonalResult
-                                difficulty={'easy'}
-                                successResult={{passed: false, score: 0}}
-                            /> */}
+                            <PersonalResult
+                                type={item['_source'].type}
+                                time={item['_source'].time}
+                            />
+                            <Link className='tests-invisible-link' to={`/tests/${item['_source'].testId}`} />
                         </div>
                     )
-                })) :
+                }) :
                 <div className='general-loader' />}
             </ul>
         </>

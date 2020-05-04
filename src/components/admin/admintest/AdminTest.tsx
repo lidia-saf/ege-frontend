@@ -29,6 +29,7 @@ export const AdminTest: React.FC<{}> = () => {
     const [loading, setLoading] = React.useState<boolean>(false);
     const [result, setResult] = React.useState<null | string>(null);
     const [mediaKey, setMediaKey] = React.useState<null | string>(null);
+    const [mediaLink, setMediaLink] = React.useState<null | string>(null);
 
     async function onSubmit (e: React.FormEvent) {
         e.preventDefault();
@@ -47,6 +48,10 @@ export const AdminTest: React.FC<{}> = () => {
 
         if (mediaKey !== null) {
             data['mediaKey'] = mediaKey;
+        }
+
+        if (mediaLink !== null) {
+            data['mediaKey'] = mediaLink.replace('cdn.sdamenglish.com/', '');
         }
 
         try {
@@ -91,6 +96,8 @@ export const AdminTest: React.FC<{}> = () => {
                     questionNumber={questionNumber}
                     setMediaKey={setMediaKey}
                 />
+                <label htmlFor='mediaLink'>Если файл уже загружен и есть ссылка на него, добавь ее сюда без http или https (например, cdn.sdamenglish.com/test/3/2.test3task2.mp3):</label>
+                <input id='mediaLink' type='text' onChange={e => setMediaLink(e.currentTarget.value)} />
                 <label htmlFor='text'>Текст</label>
                 <RichTextEditor text={text} setText={setText} />
                 <label htmlFor='possibleAnswers'>Добавь варианты ответов (списком в столбик с соответствующими буквами, цифрами в редакторе)</label>

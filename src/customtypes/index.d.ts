@@ -1,4 +1,4 @@
-import { IQuestion } from '../components/tests/types';
+import { IQuestion, ITestDescription } from '../components/tests/types';
 
 export type UserAuth = {
     userId: string | number;
@@ -15,6 +15,7 @@ export type CognitoUser = {
 
 export interface IAppState {
     testsReducer: ITestsReducer;
+    testDescriptionsReducer: ITestsDescriptionReducer;
 }
 
 export interface ITestsReducer {
@@ -22,4 +23,10 @@ export interface ITestsReducer {
     loading: boolean,
     error: null | Error,
     testMaxValue: number
+}
+
+export interface ITestsDescriptionReducer {
+    testDescriptions: ITestDescription[] | [],
+    loading: boolean,
+    error: null | Error,
 }

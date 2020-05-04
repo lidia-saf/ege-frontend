@@ -18,4 +18,21 @@ export interface ISource {
     correctAnswer: string;
 }
 
+export interface ITestDescription {
+    _index: string;
+    _type: string;
+    _id: string;
+    _score: number;
+    _source: ITestDescriptionSource;
+}
+
+export interface ITestDescriptionSource {
+    testId: number;
+    name: string;
+    type: 'material' | 'exam';
+    description: string;
+    tags: string[];
+    time: number;
+}
+
 export type TSection = 'listening' | 'reading' | 'writing' | 'grammar' | 'speaking';
