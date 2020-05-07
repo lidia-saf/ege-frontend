@@ -4,6 +4,7 @@ import { sectionTranspiler } from '../utils/utils';
 import { useState } from 'react';
 import './testsCommon.css';
 import { showField, MediaComponent, AnswerTextArea, AnswerGeneralInput } from './QuestionParts';
+import { VoiceRecorder } from './VoiceRecorder';
 
 interface IQuestionTemplate {
     question: IQuestion,
@@ -27,7 +28,7 @@ export const QuestionTemplate: React.FC<IQuestionTemplate> = ({
     const [answer, setAnswer] = useState('');
     const [correct, setCorrect] = useState<null | boolean>(null);
     const questionNumber = question['_source'].questionNumber.toString();
-    const { section, mediaKey, text, task, questionDescription, possibleAnswers } = question['_source'];
+    const { section, mediaKey, text, task, questionDescription, possibleAnswers, time } = question['_source'];
 
     const isSectionShown = (numb: string) => {
         let res = showSection.indexOf(numb);
@@ -67,12 +68,15 @@ export const QuestionTemplate: React.FC<IQuestionTemplate> = ({
             <p className='question-page-text' dangerouslySetInnerHTML={{__html: text}}/>}
             <h5 className='question-page-task'>{task}</h5>
             <div className='question-page-possible-answers' dangerouslySetInnerHTML={{__html: possibleAnswers}}/>
-            {questionNumber === '39' || questionNumber === '40' ?
+            {section === 'writing' ?
                 <AnswerTextArea
                     assess={assess}
                     correct={correct}
                     onChange={onChange}
                     questionNumber={questionNumber}
+                /> : section === 'speaking' ?
+                <VoiceRecorder
+                    duration={time ? time : 10}
                 /> :
                 <AnswerGeneralInput
                     assess={assess}

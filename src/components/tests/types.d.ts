@@ -16,6 +16,7 @@ export interface ISource {
     text: string;
     possibleAnswers: string;
     correctAnswer: string;
+    time?: number;
 }
 
 export interface ITestDescription {

@@ -62,14 +62,31 @@ h5 {
     box-shadow: none;
 }
 
-.general-button:hover {
+.general-small-button {
+    height: 30px;
+    width: 100px;
+    background: linear-gradient(to left, #4754a1, #7c29cf);
+    border: none;
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 1px;
+    transition: 0.4s;
+    color: whitesmoke;
+    text-transform: lowercase;
+    font-size: 1em;
+    outline: none;
+    box-shadow: none;
+}
+
+.general-button:hover, .general-small-button:hover {
     background: linear-gradient(to right, #4754a1, #7c29cf);
-    box-shadow: 0px 1px 20px 0px rgba(71,84,161,1);
+    box-shadow: 0px 1px 10px 0px rgba(71,84,161,1);
     cursor: pointer;
     outline: none;
 }
 
-.general-button:active {
+.general-button:active, .general-small-button:active {
     background: linear-gradient(to right, #4754a1, #7c29cf);
     cursor: pointer;
     outline: none;
@@ -87,6 +104,18 @@ h5 {
     color: #0e0f0e;
     cursor: pointer;
 }
+
+.general-small-link {
+    font-size: 1em;
+    margin: 5px;
+    color: #4754a1;
+}
+
+.general-small-link:hover {
+    color: #7c29cf;
+    cursor: pointer;
+}
+
 
 .general-input-wrapper {
     width: 300px;

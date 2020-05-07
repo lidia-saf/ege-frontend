@@ -104,3 +104,19 @@ audio {
 .question-page-possible-answers ol {
     margin: 0;
 }
+
+.voice-recorder {
+    width: 90%;
+    margin: 5px;
+}
+
+.voice-recorder-notification {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.voice-recorder audio {
+    margin: 20px 0;
+}
+
+
