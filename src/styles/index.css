@@ -64,7 +64,7 @@ h5 {
 
 .general-small-button {
     height: 30px;
-    width: 100px;
+    width: auto;
     background: linear-gradient(to left, #4754a1, #7c29cf);
     border: none;
     display: block;

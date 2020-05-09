@@ -22,7 +22,7 @@ export const TestPage: React.FC<{}> = () => {
     useApiToExtractTestDescriptions()
     const testsDescriptions = useSelector(state => (state as IAppState).testDescriptionsReducer.testDescriptions);
     let testData = testsDescriptions.length > 0 ?
-        testsDescriptions.filter(item => item._source.testId === Number.parseInt(testId, 10))[0] :
+        testsDescriptions.filter(item => item._source.testId.toString() === testId)[0] :
         null;
 
     const [score, setScore] = useState(0);
@@ -35,7 +35,7 @@ export const TestPage: React.FC<{}> = () => {
 
     React.useEffect(() => {
         if (testsDescriptions.length !== 0) {
-            testData = testsDescriptions.filter(item => item._source.testId === Number.parseInt(testId, 10))[0]
+            testData = testsDescriptions.filter(item => item._source.testId.toString() === testId)[0]
         }
     })
 
