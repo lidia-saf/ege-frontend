@@ -1,0 +1,72 @@
+.admin-testlist {
+    position: relative;
+}
+
+.admin-testlist-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    border: 1px solid darkblue;
+    margin: 20px auto;
+    padding: 0;
+}
+
+.admin-testlist-list-item {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    border-top: 1px solid darkblue;
+    border-bottom: 1px solid darkblue;
+}
+
+.admin-testlist-list-item p, .admin-testlist-list-item a {
+    margin: 20px;
+}
+
+.admin-testlist-questionId {
+    width: 200px;
+}
+
+.admin-testlist-number {
+    width: 50px;
+}
+
+.admin-testlist-section {
+    width: 100px;
+}
+
+.admin-testlist-task {
+    width: 200px;
+    overflow: hidden;
+}
+
+.admin-testlist-action-column {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-testlist-action {
+    width: 50px;
+    padding: 0;
+}
+
+.admin-testlist-action svg {
+    height: 30px;
+}
+
+.admin-testlist-button {
+    background: transparent;
+    border: none;
+}
+
+.delete-success {
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    background-color: darkorchid;
+    color: white;
+    padding: 50px;
+}

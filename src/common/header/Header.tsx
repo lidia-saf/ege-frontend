@@ -41,7 +41,7 @@ export const Header: React.FC<IHeader> = () => {
                     </li>
                     {isUserAdminGroup &&
                     <li className='navigation-list-item'>
-                        <Link onClick={() => setMenuOpened(prev => !prev)} to='/admin'>Админка</Link>
+                        <Link onClick={() => setMenuOpened(prev => !prev)} to='/admin/question'>Админка</Link>
                     </li>}
                     <li className='navigation-list-item'>
                         {auth.authenticated ?
