@@ -10,6 +10,7 @@ export const Admin: React.FC<{}> = () => {
                     <li><Link to={`/admin/question`}>Новый вопрос</Link></li>
                     <li><Link to={`/admin/testdesc`}>Новое описание теста</Link></li>
                     <li><Link to={`/admin/testlist`}>Список вопросов</Link></li>
+                    <li><Link to={`/admin/testdesclist`}>Список описаний</Link></li>
                 </ul>
             </nav>
         </div>

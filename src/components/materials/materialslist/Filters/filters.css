@@ -1,0 +1,135 @@
+.filters-container {
+    margin: 0 auto;
+}
+
+.filters-input {
+    width: 90%;
+    margin: 30px auto 40px;
+    position: relative;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #4754a1;
+}
+
+.filters-effect {
+    width: 100%;
+    font-size: 0.7em;
+    font-weight: 300;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 5px;
+    color: black;
+}
+
+.filters-effect:focus {
+    padding: 5px 14px 7px;
+    transition: 0.4s;
+}
+
+.filters-effect ~ .focus-border {
+    position: absolute;
+    height: 36px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    transition: 0.4s;
+}
+
+.filters-effect:focus ~ .focus-border {
+    width: 100%;
+    transition: 0.4s;
+    border: 2px solid #4754a1;
+}
+
+.filters-checkboxes {
+    margin: 0 auto;
+    display: block;
+    width: 90%;
+}
+
+.filter-label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: capitalize;
+}
+
+.filter-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.filter-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.filter-label:hover input ~ .filter-checkmark {
+    background-color: #ccc;
+}
+
+.filter-label input:checked ~ .filter-checkmark {
+    background-color: #4754a1;
+}
+
+.filter-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.filter-label input:checked ~ .filter-checkmark:after {
+    display: block;
+}
+
+.filter-label .filter-checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.filters-button {
+    width: 150px;
+    height: 30px;
+    background-color: #4754a1;
+    color: white;
+    outline: none;
+    margin: 20px auto;
+}
+
+.filters-button:hover {
+    cursor: pointer;
+    background-color: darkblue;
+}
+
+@media only screen and (min-width: 901px) {
+    .filters-container {
+        margin: 0;
+        width: 30%;
+        max-width: 40%;
+        flex: none;
+    }
+}

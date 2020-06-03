@@ -12,6 +12,7 @@ import { AdminMaterials } from '../components/admin/adminmaterials/AdminMaterial
 import { AdminTestList } from '../components/admin/admintestlist/AdminTestList';
 import { AdminTest } from '../components/admin/admintest/AdminTest';
 import { AdminTestDesc } from '../components/admin/admintestdesc/AdminTestDesc';
+import { AdminTestDescList } from '../components/admin/admintestdesclist/AdminTestDescList';
 
 export interface IRoutesMap {
     path: string;
@@ -53,7 +54,7 @@ export const routesMap: IRoutesMap[] = [
     },
     {
         path: '/materials',
-        component: DevPage,
+        component: Materials,
         exact: true,
         hidden: false
     },
@@ -84,6 +85,12 @@ export const routesMap: IRoutesMap[] = [
     {
         path: '/admin/question/',
         component: AdminTest,
+        exact: true,
+        hidden: true
+    },
+    {
+        path: '/admin/testdesclist',
+        component: AdminTestDescList,
         exact: true,
         hidden: true
     },
